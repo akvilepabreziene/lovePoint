@@ -11,37 +11,60 @@ body{
   padding: 0;
 }
 
-.top-link {
-    height: 45px;
+@media (max-width: 767px) {
+
+header {
+    text-align: center;
+}
+
+}
+ul {
+    list-style: none; 
+
+}
+
+a {
+    color: #888;
+    font-size: 12px;
+}
+
+.dropdown.show {
+    display: inline-block
 }
 
 .dark-header {
     
     background-color: rgb(48,48,48);
-    height: 90px;
+  
 }
 
-.fa-shopping-basket {
-    height: 20px;
-}
-
-.fa-search {
+svg {
     fill: white;
-    height: 20px;
+}
+
+svg:hover {
+
+    fill: rgb(120,183,198);
+} 
+
+ul {
+width: 100%;
+display: flex;
+justify-content: space-between;
 }
 
 
-li {
-    width: 20%;
-    text-align: end;
-}
-
-a {
+.menu {
 
     color: white;
+  
 }
 
 a:hover {
     color: rgb(120,183,198);
     text-decoration: none;
+}
+
+.menu span {
+    font-size: 14px;
 }
