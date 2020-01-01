@@ -69,6 +69,59 @@ a:hover {
     font-size: 14px;
 }
 
-.img {
-    max-width: 100%;
+
+
+.new-arrivals {
+    font-family: 'Oswald', sans-serif;
 }
+
+.new-arrivals h2{
+
+    font-size: 24px;
+    font-weight: 700;
+}
+
+.new-arrivals p {
+    font-style: italic;
+    color:rgb(48,48,48);
+}
+
+footer ul {
+    display: block;
+}
+
+footer a {
+    font-size: 14px;
+}
+
+.footer-header {
+    border-left: 2px solid rgb(120,183,198);
+}
+
+.footer-header span {
+    font-family: 'Oswald', sans-serif;
+    color: white;
+    font-size: 16px;
+}
+
+.form-control {
+    font-size: 14px;
+}
+
+::-webkit-input-placeholder { /* Edge */
+    font-style: italic;
+  }
+  
+  :-ms-input-placeholder { /* Internet Explorer */
+    font-style: italic;
+  }
+  
+  ::placeholder {
+    font-style: italic;
+  }
+
+  input[type="text"], textarea {
+
+    background-color : #d1d1d1; 
+  
+  }
