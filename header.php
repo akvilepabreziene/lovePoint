@@ -64,17 +64,17 @@
             <div class="container">
                 <div class="">
                     <nav class="navbar navbar-expand-lg navbar-dark px-0">
-                        <a class="navbar-brand col-3 pl-0 py-0" href="#"><img src="pictures/logo-lovePoint.png" alt="" height="80"></a>
+                        <a class="navbar-brand col-3 pl-0 py-0" href="index.php"><img src="pictures/logo-lovePoint.png" alt="" height="80"></a>
                         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                             <span class="navbar-toggler-icon"></span>
                         </button>
                         <div class="collapse navbar-collapse col-lg-9" id="navbarSupportedContent">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a href="#" class="menu"><span>HOME</span></a>
+                                    <a href="index.php" class="menu"><span>HOME</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="#" class="menu"><span>PRODUCTS</span></a>
+                                    <a href="all_products.php" class="menu"><span>PRODUCTS</span></a>
                                 </li>
                                 <li class="nav-item dropdown">
                                     <a class="dropdown-toggle menu" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

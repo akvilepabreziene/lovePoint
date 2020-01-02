@@ -146,8 +146,9 @@ footer a {
 
   .price {
     color: rgb(120,183,198);
-    font-size: 24px;
+    font-size: 22px;
     font-weight: 700;
+    align-self: center;
   }
 
   input[name="quantity"] {
@@ -172,3 +173,17 @@ footer a {
     -moz-box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
   }
+
+  .card-body h5 {
+    text-transform: uppercase;
+    font-family: 'Oswald', sans-serif;
+ 
+  }
+
+  .card-body span {
+    color: rgb(120,183,198);
+    font-size: 16px;
+    font-weight: 700;
+    display: block;
+    margin-bottom: .25rem!important;
+ }
