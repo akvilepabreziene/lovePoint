@@ -125,3 +125,50 @@ footer a {
     background-color : #d1d1d1; 
   
   }
+
+  .product-header {
+    border-left: 2px solid rgb(120,183,198);
+  }
+
+  .product-header h2 {
+      font-size: 20px;
+      font-family: 'Oswald', sans-serif;
+      text-transform: uppercase;
+      font-weight: 700;
+  }
+
+  .description {
+    color: #606060;
+    font-size: 15px;
+    font-style: italic;
+    line-height: 27px;
+  }
+
+  .price {
+    color: rgb(120,183,198);
+    font-size: 24px;
+    font-weight: 700;
+  }
+
+  input[name="quantity"] {
+    width: 50px!important;
+    height: 50px;
+    text-align: center;
+  }
+
+  label[for=quantity] {
+    font-size: 14px;
+    margin: 0;
+
+  }
+
+  .add-to-cart {
+    height: 50px;
+  }
+
+  .zoom-img:hover {
+    transform: scale(0.98);
+    -webkit-box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
+    -moz-box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
+    box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
+  }
