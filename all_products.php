@@ -2,7 +2,7 @@
 
 <div class="container my-5">
     <div class="row ">
-        <div class="col-sm-3 mb-3">
+        <div class="col-6 col-sm-3 mb-3">
             <div class="card zoom-img">
                 <a href="product.php"><img src="pictures/product-5.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -12,7 +12,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 mb-3">
+        <div class="col-6 col-sm-3 mb-3">
             <div class="card zoom-img">
                 <a href="product.php"><img src="pictures/product-2.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -22,7 +22,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 mb-3">
+        <div class="col-6 col-sm-3 mb-3">
             <div class="card zoom-img">
                 <a href="product.php"><img src="pictures/product-3.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -32,7 +32,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 mb-3">
+        <div class="col-6 col-sm-3 mb-3">
             <div class="card zoom-img">
                 <a href="product.php"><img src="pictures/product-4.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -44,7 +44,7 @@
         </div>
     </div>
     <div class="row mb-4">
-        <div class="col-sm-3 mb-3">
+        <div class="col-6 col-sm-3 mb-3">
             <div class="card zoom-img">
                 <a href="product.php"><img src="pictures/3-4.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -54,7 +54,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 mb-3">
+        <div class="col-6 col-sm-3 mb-3">
             <div class="card zoom-img">
                 <a href="product.php"><img src="pictures/4-4.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -64,7 +64,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 mb-3">
+        <div class="col-6 col-sm-3 mb-3">
             <div class="card zoom-img">
                 <a href="product.php"><img src="pictures/2-4.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
@@ -74,7 +74,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-3 mb-3">
+        <div class="col-6 col-sm-3 mb-3">
             <div class="card zoom-img">
                 <a href="product.php"><img src="pictures/1-4.jpg" class="card-img-top" alt="..."></a>
                 <div class="card-body">
