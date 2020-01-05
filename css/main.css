@@ -168,13 +168,14 @@ footer a {
   }
 
   .zoom-img:hover {
-    transform: scale(0.98);
+ 
     -webkit-box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
     -moz-box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
     box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
   }
 
   .card-body h5 {
+    font-size: 16px;
     text-transform: uppercase;
     font-family: 'Oswald', sans-serif;
  
@@ -182,8 +183,20 @@ footer a {
 
   .card-body span {
     color: rgb(120,183,198);
-    font-size: 16px;
+    font-size: 18px;
     font-weight: 700;
     display: block;
-    margin-bottom: .25rem!important;
  }
+
+  input[type="text"] {
+    background-color: white;
+  }
+
+  .card-body svg {
+      fill:rgb(120,183,198);
+  }
+
+  .card-body svg:hover {
+
+    transform: scale(1.2);
+} 

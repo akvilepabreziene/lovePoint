@@ -1,3 +1,5 @@
+<?php include 'modals/sign-in_modal.php'; ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -41,7 +43,7 @@
                 <div class="col-md-6">
                     <ul class="top-link my-2">
                         <li>
-                            <a href="">MY ACOUNT</a>
+                            <a href="" data-toggle="modal" data-target="#exampleModal">MY ACOUNT</a>
                         </li>
                         <li>
                             <a href="">WISHLIST</a>
