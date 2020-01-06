@@ -17,7 +17,7 @@
                 <div class="my-3">
                     <form class="form-inline">
                           <label for="quantity">Quantity: </label>
-                          <input type="number" class="form-control ml-2" name="quantity" id="quantity" value="1">
+                          <input type="number" class="form-control ml-2 quantity px-1" name="quantity" id="quantity" value="1">
                         <button type="submit" class="btn btn-secondary ml-2 add-to-cart">ADD TO CART</button>
                       </form>
                 </div>

@@ -131,10 +131,10 @@ footer a {
   }
 
   .product-header h2 {
-      font-size: 20px;
-      font-family: 'Oswald', sans-serif;
-      text-transform: uppercase;
-      font-weight: 700;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+    text-transform: uppercase;
+    font-weight: 700;
   }
 
   .description {
@@ -151,7 +151,7 @@ footer a {
     align-self: center;
   }
 
-  input[name="quantity"] {
+  .quantity {
     width: 50px!important;
     height: 50px;
     text-align: center;

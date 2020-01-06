@@ -21,4 +21,22 @@ $(document).ready(function(){
             $('#eye-hide').show();
           }
     });
+
+    // Onclick function for counting multiple product prices
+
+  $('#cartQuantity').change(function () {
+    
+    var productPrice = $("#price");
+    var cartQuantity = $('#cartQuantity');
+    var productSum = $("#productSum");
+
+    var sum = cartQuantity.val() * parseFloat(productPrice.text());
+
+    productSum.html(sum.toFixed(2));
+
+  });
+
+ 
+
+    
   });
