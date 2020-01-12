@@ -10,6 +10,14 @@ function getAllProducts($qty = 999999) {
     return $allProducts;
 }
 
+// Function returns recent products
+function getNewProducts($qty = 999999) {
+    $sql = "SELECT * FROM products ORDER BY id DESC LIMIT $qty";
+    $newProducts = mysqli_query(getConnect(), $sql);
+
+    return $newProducts;
+}
+
 
 // Return one product by id
 // Return an array

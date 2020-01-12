@@ -1,4 +1,11 @@
+<?php 
+    require('config/connection.php');
+    require_once('models/product.php'); 
+    require_once('models/picture.php'); 
 
+    $latestProducts = getNewProducts(4);
+
+    ?>
     
     <!-- Carousel -->
     <section class="mb-4">
@@ -72,26 +79,17 @@
     <section>
         <div class="container">
             <div class="row">
+             <?php while ( $product = mysqli_fetch_assoc($latestProducts)) : 
+
+              $picture = getPicture($product['id']); ?>
+
                 <div class="col-xs-12 col-sm-3 mb-3">
                     <div>
-                        <a href="page_product.php"><img class="w-100 zoom-img" src="pictures/1-4.jpg" alt="" ></a>
+                        <a href='page_product.php?id=<?php echo $product['id'] ?>'><img class="w-100 zoom-img" src="pictures/<?php echo $picture['picture_name'] ?>" alt="" ></a>
+                        <h5 class='card-title my-auto'><?php echo $product['title'] ?></h5>
                     </div>
                 </div>
-                <div class="col-xs-12 col-sm-3 mb-3">
-                    <div>
-                        <a href="page_product.php"><img class="w-100 zoom-img" src="pictures/2-4.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-3 mb-3">
-                    <div>
-                        <a href="page_product.php"><img class="w-100 zoom-img" src="pictures/3-4.jpg" alt=""></a>
-                    </div>
-                </div>
-                <div class="col-xs-12 col-sm-3 mb-3">
-                    <div>
-                        <a href="page_product.php"><img class="w-100 zoom-img" src="pictures/4-4.jpg" alt="" ></a>
-                    </div>
-                </div>
+<?php endwhile; ?>
                 
             </div>
         </div>

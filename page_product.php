@@ -35,12 +35,12 @@
                 <div class="my-3">
                     <form action="page_shoping_cart.php" method="POST" class="form-inline">
                         <label for="quantity">Quantity: </label>
-                        <input type="number" class="form-control ml-2 quantity px-1" name="quantity" value="1">
+                        <input type="number" min="1" class="form-control ml-2 quantity px-1" name="quantity" value="1">
                         <input type="hidden" name="hidden_title" value="<?php echo $product['title'] ?>">
                         <input type="hidden" name="hidden_image" value="<?php echo $picture['picture_name'] ?>">
                         <input type="hidden" name="hidden_price" value="<?php echo $product['price'] ?>">
                         <input type="hidden" name="hidden_id" value="<?php echo $product['id'] ?>">
-                        <input type="submit"  name="add_to_cart" class="btn btn-secondary ml-2 add-to-cart" value="ADD TO CART">
+                        <input type="submit" name="add_to_cart" class="btn btn-secondary ml-2 add-to-cart" id=add_to_cart value="ADD TO CART">
                     </form>
                 </div>
             </main>

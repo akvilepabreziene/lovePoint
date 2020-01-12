@@ -200,3 +200,18 @@ footer a {
 
     transform: scale(1.2);
 } 
+
+.card-bg {
+  background-color: rgb(217, 243, 247);
+}
+
+.back-to-shop {
+  font-size: 14;
+  color: rgb(23,162,184);
+  font-family: 'Oswald', sans-serif;
+}
+
+.back-to-shop:hover {
+  font-size: 15;
+  color: rgb(189,157,135);
+}

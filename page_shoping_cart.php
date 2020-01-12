@@ -29,8 +29,8 @@
                     }
                 else
                 {
-                
-                // echo '<script>window.location = "index.php"</script>';
+                    echo "<script>$('#add_to_cart').popover('show')</script>";
+
                 }
             }
             else
@@ -67,15 +67,18 @@
 ?>
 
 <div class="container mt-3">
-    <div class="row">
+    <div class="w-100 text-right">
+        <a href="page_all_products.php" class="back-to-shop">GRĮŽTI Į PARDUOTUVĘ</a>
+    </div>
+
+
 <?php 
     if(!empty($_SESSION["shopping_cart"])) {
-        
-    $total = 0;
+
     
     foreach($_SESSION["shopping_cart"] as $cart_product) : ?>
-
-        <div class="col-12 col-sm-6 mb-3">
+    <div class="row">
+        <div class="col-12 col-sm-6">
             <div class="row align-items-center">
                 <div class="col-1">
                     <a href="page_shoping_cart.php?action=delete&id=<?php echo $cart_product['product_id'];?>"><svg width="20" height="20" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></a>
@@ -94,17 +97,23 @@
                     <span id="price"><?php echo $cart_product['product_price'] ?> &euro;</span>
                 </div>
                 <div class="col text-right">
-                    <input type="number" class="form-control ml-auto quantity px-1" name="product_Quantity" value="<?php echo $cart_product['product_quantity'] ?>">
+                    <input type="number" class="form-control ml-auto quantity px-1" min="1" name="product_Quantity" value="<?php echo $cart_product['product_quantity'] ?>">
                 </div>
                 <div class="col text-right">
                     <span name="product_sum">6,49 &euro;</span>
                 </div>
             </div>
         </div>
-    <?php endforeach; ?>
-
     </div>
-<?php } ?> 
+    <?php endforeach; 
+    }else { ?>
+
+        <div class="card mx-3 my-5 card-bg text-center w-100">
+            <div class="card-body">
+                <h5 class="card-title my-3">Jūsų krepšelis tuščias :(</h5>
+            </div>
+        </div>
+    <? } ?>
 </div>
 
 <?php include('footer.php'); ?>
