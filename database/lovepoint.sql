@@ -1,8 +1,8 @@
-DROP DATABASE `lovepoint`;
+
 
 CREATE DATABASE IF NOT EXISTS `lovepoint`;
 
-USE `lovepoint`
+USE `lovepoint`;
 
 CREATE TABLE `users` (
     `id` INT NOT NULL PRIMARY KEY AUTO_INCREMENT,
