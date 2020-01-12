@@ -1,4 +1,5 @@
 
+
 $(document).ready(function(){
 
     console.log("Testas");
@@ -32,7 +33,7 @@ $(document).ready(function(){
 
   });
 
- 
+
 
     
   });
