@@ -11,13 +11,7 @@ body{
   padding: 0;
 }
 
-@media (max-width: 767px) {
 
-header {
-    text-align: center;
-}
-
-}
 ul {
     list-style: none; 
 
@@ -214,4 +208,24 @@ footer a {
 .back-to-shop:hover {
   font-size: 15;
   color: rgb(189,157,135);
+}
+
+.cart-counter {
+  border-radius: 50%;
+  width: 14px;
+  height: 14px;
+  background-color: rgb(21,150,170);
+  color: white;
+  text-align: center;
+  font-size: 10px;
+  position: absolute;
+  top: 0;
+  right:-2;
+
+}
+
+.cart {
+  position: relative;
+  width: 25px;
+
 }

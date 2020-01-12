@@ -6,9 +6,9 @@
     include('header.php');
     require_once('models/product.php'); 
     require_once('models/picture.php'); 
- 
 
     if(isset($_POST["add_to_cart"])) {
+        
             if(isset($_SESSION["shopping_cart"])) {
                 $item_array_id = array_column($_SESSION["shopping_cart"], "product_id");
                 if(!in_array($_POST['hidden_id'], $item_array_id))
@@ -29,13 +29,11 @@
                     }
                 else
                 {
-                    echo "<script>$('#add_to_cart').popover('show')</script>";
-
+                    // Ka daryti kai preke jau krepselyje?????
                 }
             }
             else
             {
- 
                 //cart is empty excute this block
                  $item_array = array(
                                 'product_id'       =>   $_POST['id'],
@@ -75,9 +73,13 @@
 <?php 
     if(!empty($_SESSION["shopping_cart"])) {
 
-    
-    foreach($_SESSION["shopping_cart"] as $cart_product) : ?>
-    <div class="row">
+    $_SESSION["suma"] = 0;
+    foreach($_SESSION["shopping_cart"] as $cart_product) : 
+
+    $_SESSION["suma"] += $cart_product['product_price'] * $cart_product['product_quantity']; ?>
+
+
+    <div class="row mb-3">
         <div class="col-12 col-sm-6">
             <div class="row align-items-center">
                 <div class="col-1">
@@ -100,19 +102,21 @@
                     <input type="number" class="form-control ml-auto quantity px-1" min="1" name="product_Quantity" value="<?php echo $cart_product['product_quantity'] ?>">
                 </div>
                 <div class="col text-right">
-                    <span name="product_sum">6,49 &euro;</span>
+                    <span name="product_sum"><?php echo $cart_product['product_price'] * $cart_product['product_quantity']?> &euro;</span>
                 </div>
             </div>
         </div>
     </div>
     <?php endforeach; 
-    }else { ?>
-
+    ?><div class="w-100 text-right"><h5>Suma: <?php echo  $_SESSION["suma"]; ?> &euro;</h5></div>
+    <?php }else { ?>
+    <div class="row">
         <div class="card mx-3 my-5 card-bg text-center w-100">
             <div class="card-body">
                 <h5 class="card-title my-3">Jūsų krepšelis tuščias :(</h5>
             </div>
         </div>
+    </div>
     <? } ?>
 </div>
 

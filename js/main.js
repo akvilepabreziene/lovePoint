@@ -24,15 +24,11 @@ $(document).ready(function(){
 
     // Onclick function for counting multiple product prices
 
-  $('#cartQuantity').change(function () {
-    
-    var productPrice = $("#price");
-    var cartQuantity = $('#cartQuantity');
-    var productSum = $("#productSum");
+  $('.product_Quantity').change(function () {
 
-    var sum = cartQuantity.val() * parseFloat(productPrice.text());
+    var quantity = $('.product_Quantity');
 
-    productSum.html(sum.toFixed(2));
+    $('.product_Quantity').val() = quantity.val();
 
   });
 

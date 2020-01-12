@@ -40,7 +40,7 @@
                         <input type="hidden" name="hidden_image" value="<?php echo $picture['picture_name'] ?>">
                         <input type="hidden" name="hidden_price" value="<?php echo $product['price'] ?>">
                         <input type="hidden" name="hidden_id" value="<?php echo $product['id'] ?>">
-                        <input type="submit" name="add_to_cart" class="btn btn-secondary ml-2 add-to-cart" id=add_to_cart value="ADD TO CART">
+                        <input type="submit" name="add_to_cart" class="btn btn-secondary ml-2 add-to-cart" id=add_to_cart value="ADD TO CART" >
                     </form>
                 </div>
             </main>
