@@ -74,22 +74,22 @@
             <div class="row">
                 <div class="col-xs-12 col-sm-3 mb-3">
                     <div>
-                        <a href="product.php"><img class="w-100 zoom-img" src="pictures/1-4.jpg" alt="" ></a>
+                        <a href="page_product.php"><img class="w-100 zoom-img" src="pictures/1-4.jpg" alt="" ></a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-3 mb-3">
                     <div>
-                        <a href="product.php"><img class="w-100 zoom-img" src="pictures/2-4.jpg" alt=""></a>
+                        <a href="page_product.php"><img class="w-100 zoom-img" src="pictures/2-4.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-3 mb-3">
                     <div>
-                        <a href="product.php"><img class="w-100 zoom-img" src="pictures/3-4.jpg" alt=""></a>
+                        <a href="page_product.php"><img class="w-100 zoom-img" src="pictures/3-4.jpg" alt=""></a>
                     </div>
                 </div>
                 <div class="col-xs-12 col-sm-3 mb-3">
                     <div>
-                        <a href="product.php"><img class="w-100 zoom-img" src="pictures/4-4.jpg" alt="" ></a>
+                        <a href="page_product.php"><img class="w-100 zoom-img" src="pictures/4-4.jpg" alt="" ></a>
                     </div>
                 </div>
                 
