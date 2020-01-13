@@ -2,9 +2,7 @@
 
 $(document).ready(function(){
 
-    console.log("Testas");
     var passwordInput = $('#signInPassword');
-    console.log(passwordInput.attr('type'));
     $('#eye-show').hide();
 
     $('#show-password').click(function() {
@@ -25,36 +23,38 @@ $(document).ready(function(){
 
     // Onclick function for counting multiple product prices
 
-  $('input[name="product_Quantity"]').change(function (e) {
-    var id = $(this).attr('id');
-    var quantity = $(this).val();
-    console.log(quantity);
-    var price = $(".product-price-"+id).text();
-    console.log(price);
-    
-    
-    var suma =  $(".product-sum-"+id).text(quantity * price);
+    $('input[name="product_Quantity"]').change(function (e) {
+      var id = $(this).attr('id');
+      var quantity = $(this).val();
+      // console.log(quantity);
+      var price = $(".product-price-"+id).text();
+      // console.log(price);
+      
+      var sum = quantity * price
+      
+      var suma = $(".product-sum-" + id).html(sum + " &euro;");
 
+    // When you change quantity value in shoping cart it changes a session variable
     $.ajax({
       type : 'post',
-      url : 'update_sessionArray-ajax.php', //Here you will fetch records
-      data : {'id': id, 'quantity' : quantity}, //Pass $id
+      url : 'update_sessionArray-ajax.php', 
+      data : {'id': id, 'quantity' : quantity}, 
     
       success : function(data){
-            var x = JSON.parse(data);
-            console.log(x);
+
+        var dataArray = JSON.parse(data);
+        $('.cart-counter').html(dataArray[0]);
+        $('.all_products_sum').html(dataArray[1] +" &euro;");
+
+            console.log(data);
               },
       error: function(e) {
-           //called when there is an error
            alert( "Request failed: " + e );
            console.log("NESUVEIKE!");
      }
-  });
+    });
 
 
   });
 
- 
-
-    
-  });
+});

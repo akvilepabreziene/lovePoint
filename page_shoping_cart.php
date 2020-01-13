@@ -1,6 +1,5 @@
 <?php 
 
-    session_start();
 
     require('config/connection.php');
     include('header.php');
@@ -13,6 +12,7 @@
                 $item_array_id = array_column($_SESSION["shopping_cart"], "product_id");
                 if(!in_array($_POST['hidden_id'], $item_array_id))
                     {
+ 
                     $count = count($_SESSION["shopping_cart"]);
  
                 //get all item detail
@@ -101,13 +101,13 @@
                     <input type="number" class="form-control ml-auto quantity px-1" min="1" id="<?php echo $cart_product['product_id'] ?>" name="product_Quantity" value="<?php echo $cart_product['product_quantity'] ?>">
                 </div>
                 <div class="col text-right">
-                    <div class="product-sum-<?php echo $cart_product['product_id'] ?>"><?php echo $cart_product['product_price'] * $cart_product['product_quantity']?><span> &euro;</span></div>
+                    <div class="product-sum-<?php echo $cart_product['product_id'] ?>"><?php echo $cart_product['product_price'] * $cart_product['product_quantity']?><span></span></div>
                 </div>
             </div>
         </div>
     </div>
     <?php endforeach; 
-    ?><div class="w-100 text-right"><h5>Suma: <?php echo  $_SESSION["suma"]; ?> &euro;</h5></div>
+    ?><div class="w-100 text-right"><h5 class="all_products_sum"><?php echo $_SESSION["all_products_sum"] ?> &euro;</h5></div>
     <?php }else { ?>
     <div class="row">
         <div class="card mx-3 my-5 card-bg text-center w-100">

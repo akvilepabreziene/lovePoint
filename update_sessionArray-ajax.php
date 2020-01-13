@@ -2,23 +2,32 @@
 
 session_start();
 
-// print_r($_SESSION);
-// echo("<hr>" . $_SESSION["shopping_cart"][0]["product_quantity"]);
-//  $_SESSION["shopping_cart"][0]["product_quantity"] = 99;
+//print_r($_SESSION["all_products_qty"]);
 
 if (isset($_POST['id']) && isset($_POST['quantity'])) {
 
+    $all_products_qty = 0;
+    $all_products_sum = 0;
 
+    for ($i=0; $i < count($_SESSION["shopping_cart"]); $i++) { 
 
-    foreach ($_SESSION["shopping_cart"] as $array_id) {
-        if ( $array_id["product_id"] == $_POST['id']) {
+        if ($_SESSION["shopping_cart"][$i]["product_id"] == $_POST['id']) {
 
-           $array_id["product_quantity"] = $_POST['quantity'];
-
-            
-            // echo json_encode($_SESSION["shopping_cart"]);
-            echo json_encode($array_id);
+            $_SESSION["shopping_cart"][$i]["product_quantity"] = $_POST['quantity']; 
         }
+
+    $all_products_qty += $_SESSION["shopping_cart"][$i]["product_quantity"];
+    $all_products_sum += $_SESSION["shopping_cart"][$i]["product_price"] * $_SESSION["shopping_cart"][$i]["product_quantity"];
+
+    $_SESSION["all_products_qty"] = $all_products_qty;
+    $_SESSION["all_products_sum"] = $all_products_sum;
+    
+  $data[0] = $all_products_qty;
+  $data[1] = $all_products_sum;
+
+
     }
+
+   echo json_encode( $data);
 
 }
