@@ -25,15 +25,36 @@ $(document).ready(function(){
 
     // Onclick function for counting multiple product prices
 
-  $('.product_Quantity').change(function () {
+  $('input[name="product_Quantity"]').change(function (e) {
+    var id = $(this).attr('id');
+    var quantity = $(this).val();
+    console.log(quantity);
+    var price = $(".product-price-"+id).text();
+    console.log(price);
+    
+    
+    var suma =  $(".product-sum-"+id).text(quantity * price);
 
-    var quantity = $('.product_Quantity');
-
-    $('.product_Quantity').val() = quantity.val();
-
+    $.ajax({
+      type : 'post',
+      url : 'update_sessionArray-ajax.php', //Here you will fetch records
+      data : {'id': id, 'quantity' : quantity}, //Pass $id
+    
+      success : function(data){
+            var x = JSON.parse(data);
+            console.log(x);
+              },
+      error: function(e) {
+           //called when there is an error
+           alert( "Request failed: " + e );
+           console.log("NESUVEIKE!");
+     }
   });
 
 
+  });
+
+ 
 
     
   });

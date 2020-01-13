@@ -15,14 +15,13 @@
                     {
                     $count = count($_SESSION["shopping_cart"]);
  
-
                 //get all item detail
                         $item_array = array(
-                                'product_id'       =>   $_POST['hidden_id'],
-                                'product_img'   =>   $_POST['hidden_image'],
-                                'product_title'     =>   $_POST['hidden_title'],
-                                'product_price'    =>   $_POST['hidden_price'],
-                                'product_quantity' =>   $_POST['quantity']
+                            'product_id'       =>   $_POST['hidden_id'],
+                            'product_img'      =>   $_POST['hidden_image'],
+                            'product_title'    =>   $_POST['hidden_title'],
+                            'product_price'    =>   $_POST['hidden_price'],
+                            'product_quantity' =>   $_POST['quantity']
                         );
 
                         $_SESSION["shopping_cart"][$count++] = $item_array;
@@ -36,12 +35,12 @@
             {
                 //cart is empty excute this block
                  $item_array = array(
-                                'product_id'       =>   $_POST['hidden_id'],
-                                'product_img'       =>   $_POST['hidden_image'],
-                                'product_title'     =>   $_POST['hidden_title'],
-                                'product_price'    =>   $_POST['hidden_price'],
-                                'product_quantity' =>   $_POST['quantity']
-                        );
+                    'product_id'       =>   $_POST['hidden_id'],
+                    'product_img'      =>   $_POST['hidden_image'],
+                    'product_title'    =>   $_POST['hidden_title'],
+                    'product_price'    =>   $_POST['hidden_price'],
+                    'product_quantity' =>   $_POST['quantity']
+                    );
 
                 $_SESSION["shopping_cart"][0] = $item_array;
             }
@@ -96,13 +95,13 @@
         <div class="col-12 col-sm-6">
             <div class="row h-100 align-items-center">
                 <div class="col text-right">
-                    <span id="price"><?php echo $cart_product['product_price'] ?> &euro;</span>
+                    <div class="product-price-<?php echo $cart_product['product_id'] ?>"><?php echo $cart_product['product_price'] ?></div>
                 </div>
                 <div class="col text-right">
-                    <input type="number" class="form-control ml-auto quantity px-1" min="1" name="product_Quantity" value="<?php echo $cart_product['product_quantity'] ?>">
+                    <input type="number" class="form-control ml-auto quantity px-1" min="1" id="<?php echo $cart_product['product_id'] ?>" name="product_Quantity" value="<?php echo $cart_product['product_quantity'] ?>">
                 </div>
                 <div class="col text-right">
-                    <span name="product_sum"><?php echo $cart_product['product_price'] * $cart_product['product_quantity']?> &euro;</span>
+                    <div class="product-sum-<?php echo $cart_product['product_id'] ?>"><?php echo $cart_product['product_price'] * $cart_product['product_quantity']?><span> &euro;</span></div>
                 </div>
             </div>
         </div>
