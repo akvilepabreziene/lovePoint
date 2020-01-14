@@ -45,7 +45,8 @@ function changeShoppingCartInputValue() {
   
           var dataArray = JSON.parse(data);
           $('.cart-counter').html(dataArray[0]);
-          $('.all_products_sum').html(dataArray[1] +" &euro;");
+          $('.total_sum').html(dataArray[1] + " &euro;");
+console.log(dataArray);
 
                 },
         error: function(e) {

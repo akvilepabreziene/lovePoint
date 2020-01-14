@@ -12,7 +12,16 @@ INSERT INTO pictures VALUES
     (NULL, '10005.jpg', 5),
     (NULL, '10006.jpg', 6),
     (NULL, '10007.jpg', 7),
-    (NULL, '10008.jpg', 8);
+    (NULL, '10008.jpg', 8),
+    (NULL, '10009.jpg', 9),
+    (NULL, '10010.jpg', 10),
+    (NULL, '10011.jpg', 11),
+    (NULL, '10012.jpg', 12),
+    (NULL, '10013.jpg', 13),
+    (NULL, '10014.jpg', 14);
+  
+    
+    
 
 INSERT INTO `customers` (`id`, `name`, `lastname`, `email`, `adress`, `phone`) VALUES 
     (NULL, 'Tyson', 'Satterfield', 'doritlt@connectme.name', 'Kulnarb g. 50', '3678687678678'),
