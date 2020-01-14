@@ -24,7 +24,8 @@
                             'product_quantity' =>   $_POST['quantity']
                         );
 
-                        $_SESSION["shopping_cart"][$count++] = $item_array;
+                        $_SESSION["shopping_cart"][$count] = $item_array;
+                        // $_SESSION["all_products_qty"] += $item_array['product_quantity'];
                     }
                 else
                 {
@@ -43,6 +44,7 @@
                     );
 
                 $_SESSION["shopping_cart"][0] = $item_array;
+                // $_SESSION["all_products_qty"] += $item_array['product_quantity'];
             }
         }
 //Remove item in cart 
@@ -54,8 +56,9 @@
             {
               if($value["product_id"] == $_GET["id"])
               {
+                $_SESSION["all_products_qty"] -= $value["product_quantity"] ;
+                $_SESSION["all_products_sum"] -= $value["product_quantity"] * $value["product_price"];
                 unset($_SESSION["shopping_cart"][$key]);
-
               }
             }
       }
@@ -81,7 +84,7 @@
     <div class="row mb-3">
         <div class="col-12 col-sm-6">
             <div class="row align-items-center">
-                <div class="col-1">
+                <div class="col-1" id="">
                     <a href="page_shoping_cart.php?action=delete&id=<?php echo $cart_product['product_id'];?>"><svg width="20" height="20" aria-hidden="true" focusable="false" data-prefix="fas" data-icon="times" class="svg-inline--fa fa-times fa-w-11" role="img" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 352 512"><path fill="currentColor" d="M242.72 256l100.07-100.07c12.28-12.28 12.28-32.19 0-44.48l-22.24-22.24c-12.28-12.28-32.19-12.28-44.48 0L176 189.28 75.93 89.21c-12.28-12.28-32.19-12.28-44.48 0L9.21 111.45c-12.28 12.28-12.28 32.19 0 44.48L109.28 256 9.21 356.07c-12.28 12.28-12.28 32.19 0 44.48l22.24 22.24c12.28 12.28 32.2 12.28 44.48 0L176 322.72l100.07 100.07c12.28 12.28 32.2 12.28 44.48 0l22.24-22.24c12.28-12.28 12.28-32.19 0-44.48L242.72 256z"></path></svg></a>
                 </div>
                 <div class="col-4 col-sm-2">

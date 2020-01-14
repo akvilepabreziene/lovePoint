@@ -2,7 +2,6 @@
 
 session_start();
 
-//print_r($_SESSION["all_products_qty"]);
 
 if (isset($_POST['id']) && isset($_POST['quantity'])) {
 
@@ -21,9 +20,9 @@ if (isset($_POST['id']) && isset($_POST['quantity'])) {
 
     $_SESSION["all_products_qty"] = $all_products_qty;
     $_SESSION["all_products_sum"] = $all_products_sum;
-    
-  $data[0] = $all_products_qty;
-  $data[1] = $all_products_sum;
+        
+    $data[0] = $all_products_qty;
+    $data[1] = $all_products_sum;
 
 
     }
