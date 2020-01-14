@@ -11,15 +11,15 @@
       </div>
       <div class="modal-body">
 
-          <form>
+          <form method="POST" action=login.php>
               <div class="form-group">
                   <label for="signInEmail">Email address</label>
-                  <input type="email" class="form-control" id="signInEmail" aria-describedby="emailHelp">
+                  <input type="email" class="form-control" id="signInEmail" aria-describedby="emailHelp" name="email">
               </div>
               <div class="form-group">
                   <label for="signInPassword">Password</label>
                   <div class="input-group">
-                      <input type="password" class="form-control" id="signInPassword">
+                      <input type="password" class="form-control" id="signInPassword" name="password">
                       <div class="input-group-prepend"  id="show-password">
                           <span class="input-group-text" id="inputGroup-sizing-default">
                               <div id="eye-show">
@@ -36,7 +36,7 @@
                   </div>
               </div>
               <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-info">Sign In</button>
+              <button type="sumbit" class="btn btn-info">Sign In</button>
           </form>
 
       </div>

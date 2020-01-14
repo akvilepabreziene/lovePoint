@@ -44,7 +44,9 @@ INSERT INTO `orders` (`id`, `customer_id`, `order_code`, `order_time`, `status_i
     (5, 5, '005', '2020-01-10 00:00:00', 3);
 
 
-
+INSERT INTO `users` (`id`, `user_name`, `email`, `password`, `role`) VALUES 
+(NULL, 'admin', 'admin@admin.lt', 'slaptazodis', '2'), 
+(NULL, 'guest', 'guest@guest.lt', 'slaptazodis', '1');
 
 
 
