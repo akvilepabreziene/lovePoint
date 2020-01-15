@@ -18,12 +18,7 @@ function checkInput($input_name = '', $errorMessage = '') {
         $inputName_Error = $errorMessage;
         return $inputName_Error;
         // echo $inputName_Error;
-    } else {
-
-        $input = "$'$input_name";
-        $input = validate($_POST[$input_name]);
-        return $input;
-    }
+    } 
 }
 
 

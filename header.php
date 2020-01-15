@@ -1,7 +1,7 @@
-    <?php include 'modals/sign-in_modal.php'; 
+<?php include 'modals/sign-in_modal.php'; 
 
+ session_start(); 
 
-session_start();
 ?>
 
 <!DOCTYPE html>

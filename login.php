@@ -4,36 +4,42 @@ require('config/connection.php');
 require_once('models/user.php');
 require('functions.php');
 
-
+session_start();
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")  {
 
-    $email = checkInput('email', 'įveskite el.paštą');
+    $emailError = checkInput('email', 'įveskite el.paštą');
 
-    $password = checkInput('password', 'įveskite slaptažodį');
+    $passwordError = checkInput('password', 'įveskite slaptažodį');
 
-    $checkEmail = checkUserEmail($email);
+    if (!$emailError && !$passwordError) {
 
-    $connectedUser = getUser($email, $password);
+        $email = validate($_POST['email']);
+        $password = validate($_POST['password']);
+   
+        $checkEmail = checkUserEmail($email);
 
+        $connectedUser = getUser($email, $password);
 
-    if (isset($checkEmail)) {
-        if(isset($connectedUser)) {
-            // echo "Prisijungete!";
-            setcookie('login_id', 1, time() + (86400 * 30), "/");
+        if (isset($checkEmail)) {
+            if(isset($connectedUser)) {
+                //  echo "Prisijungete!";
+                $_SESSION['login'] = 1;
+                $loginErrorsArray['connection'] = true;
+            } else {
+                 $_SESSION['login'] = 0;
+                $loginErrorsArray['password'] = 'Neteisingas slaptažodis';
+            }
         } else {
-            $_COOKIE['login_id'] = 0;
-            $loginError = 'Neteisingas slaptažodis';
-            // echo 'Neteisingas slaptažodis';
-
+            $loginErrorsArray['email'] = 'Neteisingas el.pašto adresas arba toks vartotojas neregistruotas';
         }
+
     } else {
-        $loginError = 'Neteisingas el.pašto adresas arba toks vartotojas neregistruotas';
+            $loginErrorsArray['email'] = $emailError;
+             $loginErrorsArray['password'] = $passwordError;
     }
 
-     $ajaxmessage = 'Ajax veikia';
-
-    echo json_encode( $ajaxmessage);  
+    echo json_encode ($loginErrorsArray);  
 }
 
 

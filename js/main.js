@@ -64,34 +64,36 @@ changeShoppingCartInputValue();
 function login() {
   // Onclick function for counting multiple product prices
 
-  $('#loginsubmit').click(function (e) {
-    var email = $('input[name="email"]').val();
-    var password = $('input[name="password"]').val();
-  
-    // console.log(quantity);
-    // console.log(price);
-  $.ajax({
-    type : 'post',
-    url : 'login.php', 
-    data : {'email': email, 'password' : password}, 
-  
-    success : function(data){
+    $('#loginsubmit').click(function (e) {
+      var email = $('input[name="email"]').val();
+      var password = $('input[name="password"]').val();
+    
+      // console.log(quantity);
+      // console.log(price);
+      $.ajax({
+        type : 'post',
+        url : 'login.php', 
+        data : {'email': email, 'password' : password}, 
+      
+        success : function(data){
 
-      var errorsArray = JSON.parse(data);
-      $('input[name="password"]').val(errorsArray);
+          var dataArray = JSON.parse(data);
+          // $('input[name="password"]').val(errorsArray);
+            if (dataArray['connection'] == true) {
+              console.log(dataArray['connection']);
+              window.location.href = "index.php";
 
-console.log(errorsArray);
-
-            },
-    error: function(e) {
-         alert( "Request failed: " + e );
-         console.log("NESUVEIKE!");
-   }
-  });
-
-
-});
-}
+        }
+          // console.log(dataArray['connection']);
+          // window.location.href = "modals/sign-in_modal.php";
+                },
+        error: function(e) {
+            alert( "Request failed: " + e );
+            console.log("NESUVEIKE!");
+      }
+      });
+    });
+  }
  login()
 });
 
