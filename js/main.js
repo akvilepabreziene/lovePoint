@@ -61,5 +61,37 @@ console.log(dataArray);
 
 changeShoppingCartInputValue();
 
+function login() {
+  // Onclick function for counting multiple product prices
+
+  $('#loginsubmit').click(function (e) {
+    var email = $('input[name="email"]').val();
+    var password = $('input[name="password"]').val();
+  
+    // console.log(quantity);
+    // console.log(price);
+  $.ajax({
+    type : 'post',
+    url : 'login.php', 
+    data : {'email': email, 'password' : password}, 
+  
+    success : function(data){
+
+      var errorsArray = JSON.parse(data);
+      $('input[name="password"]').val(errorsArray);
+
+console.log(errorsArray);
+
+            },
+    error: function(e) {
+         alert( "Request failed: " + e );
+         console.log("NESUVEIKE!");
+   }
+  });
+
+
+});
+}
+ login()
 });
 
