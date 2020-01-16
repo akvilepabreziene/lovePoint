@@ -1,7 +1,6 @@
 <?php 
 
 
-    require('config/connection.php');
     include('header.php');
     include('add_cart_item_to_session.php');
     require_once('models/product.php'); 

@@ -11,6 +11,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
     $emailError = checkInput('email', 'įveskite el.paštą');
 
     $passwordError = checkInput('password', 'įveskite slaptažodį');
+    
+    $loginErrorsArray = [];
 
     if (!$emailError && !$passwordError) {
 
@@ -25,17 +27,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
             if(isset($connectedUser)) {
                 //  echo "Prisijungete!";
                 $_SESSION['login'] = $connectedUser;
-                $loginErrorsArray['connection'] = true;
+                array_push($loginErrorsArray, true);
             } else {
-                $loginErrorsArray['password'] = 'Neteisingas slaptažodis';
+                array_push($loginErrorsArray, 'Neteisingas slaptažodis');
             }
         } else {
-            $loginErrorsArray['email'] = 'Neteisingas el.pašto adresas arba toks vartotojas neregistruotas';
+
+             array_push($loginErrorsArray, 'Neteisingas el.pašto adresas arba toks vartotojas neregistruotas');
         }
 
     } else {
-            $loginErrorsArray['email'] = $emailError;
-             $loginErrorsArray['password'] = $passwordError;
+            array_push($loginErrorsArray, $emailError);
+            array_push($loginErrorsArray, $passwordError);
+
     }
 
     echo json_encode ($loginErrorsArray);  

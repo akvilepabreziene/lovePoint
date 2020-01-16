@@ -78,12 +78,21 @@ function login() {
         success : function(data){
 
           var dataArray = JSON.parse(data);
-          // $('input[name="password"]').val(errorsArray);
-            if (dataArray['connection'] == true) {
-              console.log(dataArray['connection']);
-              window.location.href = "index.php";
+          console.log(dataArray);
+          // $(".errors").html(dataArray);
 
-        }
+          dataArray.forEach(element => {
+            if (element== true) {
+              window.location.href = "index.php";
+            } else {
+              $(".errors").append("<div class='alert alert-danger' role='alert'>" + element + "</div >");
+            }
+          });  
+        //     if (dataArray['connection'] == true) {
+        //       console.log(dataArray['connection']);
+        //       window.location.href = "index.php";
+
+        // }
           // console.log(dataArray['connection']);
           // window.location.href = "modals/sign-in_modal.php";
                 },

@@ -33,8 +33,8 @@ function getProduct($id) {
 // Return an array
 function getProductsByCategory($category) {
     $sql = "SELECT * FROM products WHERE category_id = '$category' ";
-    $productObject = mysqli_query(getConnect(), $sql);
-    $products = mysqli_fetch_assoc($productObject);
+    $products = mysqli_query(getConnect(), $sql);
+   
 
     return $products;
 }

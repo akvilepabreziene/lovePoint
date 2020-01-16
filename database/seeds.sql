@@ -1,7 +1,7 @@
 
 INSERT INTO categories VALUES
-    (NULL, 'Lankeliai'),
-    (NULL, 'Gumytės'),
+    (NULL, 'Sapnų gaudyklės'),
+    (NULL, 'Lankeliao'),
     (NULL, 'Pirštinės');
 
 INSERT INTO pictures VALUES

@@ -1,5 +1,5 @@
 <?php 
-    require('config/connection.php');
+
     require_once('models/product.php'); 
     require_once('models/picture.php'); 
 

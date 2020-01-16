@@ -1,7 +1,11 @@
-<?php include 'modals/sign-in_modal.php'; 
+<?php 
 
- session_start(); 
+    include 'modals/sign-in_modal.php'; 
+    require('config/connection.php');
+    require_once('models/category.php'); 
+    session_start(); 
 
+    $categories = getAllCategories();
 ?>
 
 <!DOCTYPE html>
@@ -57,7 +61,7 @@
                         </li>
                         <?php if (!isset($_SESSION['login'])) : ?>
                         <li>
-                            <a href="" data-toggle="modal" data-target="#exampleModal">Login in</a>
+                            <a href="" data-toggle="modal" data-target="#exampleModal">Login</a>
                         </li>
                         <?php endif ?>
 
@@ -107,12 +111,13 @@
                                             <li>
                                                 <a href="page_all_products.php" class="list-group-item">VISI</a>
                                             </li>
-                                            <li><a href="page_lankeliai.php?category_id=1" class="list-group-item">Lankeliai</a>
+
+                                         <?php while ( $category = mysqli_fetch_assoc($categories)) : ?>
+
+                                            <li>
+                                                <a href="page_all_products.php?category_id=<?php  echo $category['id'] ?>" class="list-group-item"><?php  echo $category['category_name'] ?></a>
                                             </li>
-                                                <li><a href="" class="list-group-item">Pirštinės</a>
-                                            </li>
-                                                <li><a href="" class="list-group-item">Galvajuostės</a>
-                                            </li>
+                                        <?php endwhile; ?>   
                                         </ul>
                                     </div>
                                 </li>
@@ -122,7 +127,12 @@
                                 <li class="nav-item">
                                     <div class="cart">
                                         <a class="" href="page_shoping_cart.php"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M17.21 9l-4.38-6.56c-.19-.28-.51-.42-.83-.42-.32 0-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1h-4.79zM9 9l3-4.4L15 9H9zm3 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></a>
-                                        <div class="cart-counter"><?php if(isset($_SESSION["total_quantity"])) { echo $_SESSION['total_quantity']; } ?></div>
+                                        <?php if(isset($_SESSION["total_quantity"]) && $_SESSION['total_quantity'] > 0) : ?>
+
+                                            <div class="cart-counter"><?php echo $_SESSION['total_quantity'] ?></div>
+
+                                        <?php endif ?>
+
                                     </div>
                                 </li>
                             </ul>

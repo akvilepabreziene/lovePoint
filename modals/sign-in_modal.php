@@ -2,17 +2,15 @@
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
-
-    <?php if (!isset($_SESSION['login']) || ($_SESSION['login'] == 0)) {?>
         <div class="modal-header">      
-
           <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
           <button type="button" class="close" data-dismiss="modal" aria-label="Close">
             <span aria-hidden="true">&times;</span>
         </button>
+
       </div>
       <div class="modal-body">
-
+            <div class="errors"></div>
           <form  class="login-form" method="POST" >
               <div class="form-group">
                   <label for="signInEmail">Email address</label>
@@ -40,18 +38,6 @@
               <button type="button" id="loginsubmit" class="btn btn-info">Sign In</button>
           </form>
     </div>
-    <?php } ?>
-   <?php if (isset($_SESSION['login']) && ($_SESSION['login'] == 1)) {?>
-    <div class="modal-header">      
-              <h5 class="modal-title" id="exampleModalLabel">Sveiki prisijungę!</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                  <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        <div class="modal-body">
-          <a href="logout.php" type="button" class="btn btn-info">Logout</a>
-      </div>
-   <?php } ?>
   </div>
 </div>
 </div>

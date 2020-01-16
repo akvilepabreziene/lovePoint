@@ -1,6 +1,5 @@
 <?php
-    // require('../config/connection.php');
-//returns all users
+
 
 function getAllUsers($qty = 999999) {
     $sql = "SELECT * FROM  users LIMIT $qty";

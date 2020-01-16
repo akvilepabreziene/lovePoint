@@ -1,11 +1,18 @@
 <?php 
 
-    require('config/connection.php');
+
     include('header.php');
     require_once('models/product.php'); 
     require_once('models/picture.php'); 
+    require_once('models/category.php'); 
 
-$products = getAllProducts(); 
+
+ if(isset($_GET['category_id'])) {
+    $category_id = $_GET['category_id'];
+    $products = getProductsByCategory($category_id);
+ } else {
+    $products = getAllProducts(); 
+ }
 
 
 ?>
