@@ -4,7 +4,7 @@ require('config/connection.php');
 require_once('models/user.php');
 require('functions.php');
 
-session_start();
+session_start(); 
 
 if ($_SERVER["REQUEST_METHOD"] == "POST")  {
 
@@ -24,10 +24,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
         if (isset($checkEmail)) {
             if(isset($connectedUser)) {
                 //  echo "Prisijungete!";
-                $_SESSION['login'] = 1;
+                $_SESSION['login'] = $connectedUser;
                 $loginErrorsArray['connection'] = true;
             } else {
-                 $_SESSION['login'] = 0;
                 $loginErrorsArray['password'] = 'Neteisingas slaptažodis';
             }
         } else {

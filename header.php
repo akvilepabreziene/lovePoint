@@ -47,9 +47,6 @@
                 <div class="col-md-6">
                     <ul class="top-link my-2">
                         <li>
-                            <a href="" data-toggle="modal" data-target="#exampleModal">MY ACOUNT</a>
-                        </li>
-                        <li>
                             <a href="">WISHLIST</a>
                         </li>
                         <li>
@@ -58,6 +55,27 @@
                         <li>
                             <a href="">CHECKOUT</a>
                         </li>
+                        <?php if (!isset($_SESSION['login'])) : ?>
+                        <li>
+                            <a href="" data-toggle="modal" data-target="#exampleModal">Login in</a>
+                        </li>
+                        <?php endif ?>
+
+                        <?php if (isset($_SESSION['login'])) : ?>
+
+                        <li>
+                            <a class="dropdown-user dropdown-toggle" id="myAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <?php echo $_SESSION['login']['user_name'] ?>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="myAccount">
+                                <a class="dropdown-item" href="#">Užsakymai</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="logout.php">Logout</a>
+                            </div>
+                        </li>
+
+                        <?php endif ?>
+
                     </ul>
                 </div>
             </div>
@@ -80,17 +98,22 @@
                                     <a href="index.php" class="menu"><span>HOME</span></a>
                                 </li>
                                 <li class="nav-item">
-                                    <a href="page_all_products.php" class="menu"><span>PRODUCTS</span></a>
+                                    <a href="index.php" class="menu"><span>ABOUT US</span></a>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="dropdown-toggle menu" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    <span> COLLECTION</span>
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                        <a class="dropdown-item" href="#">Action</a>
-                                        <a class="dropdown-item" href="#">Another action</a>
-                                        <div class="dropdown-divider"></div>
-                                        <a class="dropdown-item" href="#">Something else here</a>
+                                <li class="nav-item">
+                                    <a href="" class="menu"><span>PRODUCTS</span></a>
+                                    <div class="card pr-5">
+                                        <ul class="list-group list-group-flush">
+                                            <li>
+                                                <a href="page_all_products.php" class="list-group-item">VISI</a>
+                                            </li>
+                                            <li><a href="page_lankeliai.php?category_id=1" class="list-group-item">Lankeliai</a>
+                                            </li>
+                                                <li><a href="" class="list-group-item">Pirštinės</a>
+                                            </li>
+                                                <li><a href="" class="list-group-item">Galvajuostės</a>
+                                            </li>
+                                        </ul>
                                     </div>
                                 </li>
                                 <li class="nav-item">

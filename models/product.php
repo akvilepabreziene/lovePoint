@@ -29,6 +29,16 @@ function getProduct($id) {
     return $product;
 }
 
+// Return one product by category
+// Return an array
+function getProductsByCategory($category) {
+    $sql = "SELECT * FROM products WHERE category_id = '$category' ";
+    $productObject = mysqli_query(getConnect(), $sql);
+    $products = mysqli_fetch_assoc($productObject);
+
+    return $products;
+}
+
 // Function creates a new product to database
 function createProduct($title, $product_code, $price, $material, $description, $category_id, $quantity) {
 

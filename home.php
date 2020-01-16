@@ -45,6 +45,12 @@
           </div>
     </section>
     <!-- Carousel end -->
+
+    <section class="text-center new-arrivals my-5">
+        <h2>NEWS</h2>
+        <P class="mt-3">Lorem est etiam processus qui sequitur.</P>
+    </section>
+
     <!-- 3 pictures section start -->
     <section>
         <div class="container">

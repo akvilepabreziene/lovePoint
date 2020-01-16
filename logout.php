@@ -2,9 +2,9 @@
 
 session_start();
 
- $_SESSION['login'] = 0;
+unset($_SESSION['login']);
 
- print_r($_SESSION['login']);
 
- header("Location: page_all_products.php");
+
+ header("Location: index.php");
 
