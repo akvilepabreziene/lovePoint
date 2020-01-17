@@ -20,7 +20,9 @@
                         );
 
                         $_SESSION["shopping_cart"][$count] = $item_array;
-
+                        $_SESSION["total_quantity"] += $item_array['product_quantity'];
+                        $_SESSION["total_sum"] += $item_array['product_quantity'] * $item_array['product_price'];
+                        header("Location: page_all_products.php");
                     }
                 else
                 {
@@ -39,5 +41,8 @@
                     );
 
                 $_SESSION["shopping_cart"][0] = $item_array;
+                $_SESSION["total_quantity"] += $item_array['product_quantity'];
+                $_SESSION["total_sum"] += $item_array['product_quantity'] * $item_array['product_price'];
+                    header("Location: page_all_products.php");
             }
         }

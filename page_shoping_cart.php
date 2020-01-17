@@ -54,7 +54,9 @@
     </div>
     <?php endforeach; 
     ?><div class="w-100 text-right"><h5 class="total_sum"><?php if(isset($_SESSION["total_sum"])) { echo $_SESSION['total_sum'] . " &euro;"; } ?></h5></div>
-    <?php }else { ?>
+    <?php }else {
+        $_SESSION["total_quantity"] = 0;
+        ?>
     <div class="row">
         <div class="card mx-3 my-5 card-bg text-center w-100">
             <div class="card-body">

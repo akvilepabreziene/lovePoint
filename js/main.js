@@ -104,5 +104,22 @@ function login() {
     });
   }
  login()
+
+  $('button[name="add_to_cart"]').click(function (e) { 
+
+    var quantity = $('input[name="quantity"]').val();
+    var totalquantity = $('.cart-counter').text();
+    $('.cart-counter').html(quantity);
+
+ 
+  })
+
+    $('.categories').mouseover(function() {
+      $('.categories-list').show(100);
+    })
+
+    $('.categories').mouseleave(function () {
+      $('.categories-list').hide(100);
+    })
 });
 

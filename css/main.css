@@ -51,10 +51,10 @@ justify-content: space-between;
 .menu {
 
     color: white;
-  
+    align-self: center;
 }
 
-a:hover {
+.menu:hover, a:hover {
     color: rgb(120,183,198);
     text-decoration: none;
 }
@@ -63,7 +63,16 @@ a:hover {
     font-size: 14px;
 }
 
+.categories {
+  position: relative;
+  padding-top: 2px;
+}
 
+.categories-list {
+  position: absolute;
+  z-index: 1;
+  display: none;
+}
 
 .new-arrivals {
     font-family: 'Oswald', sans-serif;

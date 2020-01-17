@@ -104,9 +104,9 @@
                                 <li class="nav-item">
                                     <a href="index.php" class="menu"><span>ABOUT US</span></a>
                                 </li>
-                                <li class="nav-item">
-                                    <a href="" class="menu"><span>PRODUCTS</span></a>
-                                    <div class="card pr-5">
+                                <li class="nav-item categories">
+                                    <div class="menu"><span>PRODUCTS</span></div>
+                                    <div class="card pr-5 categories-list">
                                         <ul class="list-group list-group-flush">
                                             <li>
                                                 <a href="page_all_products.php" class="list-group-item">VISI</a>

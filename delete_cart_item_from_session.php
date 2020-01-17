@@ -11,6 +11,7 @@
                 $_SESSION["total_sum"] -= $value["product_quantity"] * $value["product_price"];
                 
                 unset($_SESSION["shopping_cart"][$key]);
+                 header("Location: page_shoping_cart.php");
               }
             }
       }
