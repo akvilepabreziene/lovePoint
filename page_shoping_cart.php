@@ -54,6 +54,7 @@
     </div>
     <?php endforeach; 
     ?><div class="w-100 text-right"><h5 class="total_sum"><?php if(isset($_SESSION["total_sum"])) { echo $_SESSION['total_sum'] . " &euro;"; } ?></h5></div>
+    <div class="w-100 text-right line"><button type="button" id="" class="btn btn-info mt-2">Pirkti</button></div>
     <?php }else {
         $_SESSION["total_quantity"] = 0;
         ?>

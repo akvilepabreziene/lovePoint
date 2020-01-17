@@ -1,6 +1,7 @@
 <?php 
 
-    include 'modals/sign-in_modal.php'; 
+    include 'modals/page_login_form.php'; 
+    include 'modals/page_register_form.php';
     require('config/connection.php');
     require_once('models/category.php'); 
     session_start(); 
@@ -61,7 +62,7 @@
                         </li>
                         <?php if (!isset($_SESSION['login'])) : ?>
                         <li>
-                            <a href="" data-toggle="modal" data-target="#exampleModal">Login</a>
+                            <a href="" data-toggle="modal" data-target="#login_form">Login</a>
                         </li>
                         <?php endif ?>
 

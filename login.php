@@ -37,8 +37,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
         }
 
     } else {
-            array_push($loginErrorsArray, $emailError);
-            array_push($loginErrorsArray, $passwordError);
+            
+            array_push($loginErrorsArray, 'Užpildykite tuščius laukelius');
+
 
     }
 

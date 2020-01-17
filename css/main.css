@@ -74,6 +74,14 @@ justify-content: space-between;
   display: none;
 }
 
+.modal-footer {
+  justify-content: flex-start;
+}
+
+.btn-link {
+  color: rgb(120,183,198);
+}
+
 .new-arrivals {
     font-family: 'Oswald', sans-serif;
 }
@@ -170,6 +178,10 @@ footer a {
     height: 50px;
   }
 
+  .line {
+    border-top: 2px solid rgb(235, 235, 235);;
+  }
+
   .zoom-img:hover {
  
     -webkit-box-shadow: 1px 1px 21px -11px rgba(0,0,0,0.75);
@@ -239,3 +251,27 @@ footer a {
 
 }
 
+.zoom-img {
+  position: relative;
+}
+
+.control-panel {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  z-index: 1;
+  display: none;
+}
+
+.control-button {
+  background-color: rgba(219, 215, 210, 0.829);
+  border-radius: 3px;
+}
+
+.fa-trash {
+  color: rgb(192, 19, 19);
+}
+
+.fa-edit {
+  color: rgb(202, 131, 0);
+}

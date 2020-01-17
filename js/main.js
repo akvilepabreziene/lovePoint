@@ -2,22 +2,20 @@
 
 $(document).ready(function(){
 
-    var passwordInput = $('#signInPassword');
-    $('#eye-show').hide();
+  var passwordInput = $('input[name="password"]');
+    $('.eye-hide').hide();
 
-    $('#show-password').click(function() {
-
-        var passwordInput = $('#signInPassword');
+    $('.show-password').click(function() {
 
         if (passwordInput.attr('type') === "password") {
     
-            $('#eye-show').show();
-            $('#eye-hide').hide();
+            $('.eye-hide').show();
+            $('.eye-show').hide();
             passwordInput.attr('type', 'text');
           } else {
             passwordInput.attr('type', 'password');
-            $('#eye-show').hide();
-            $('#eye-hide').show();
+            $('.eye-hide').hide();
+            $('.eye-show').show();
           }
     });
 
@@ -78,23 +76,15 @@ function login() {
         success : function(data){
 
           var dataArray = JSON.parse(data);
-          console.log(dataArray);
           // $(".errors").html(dataArray);
 
           dataArray.forEach(element => {
             if (element== true) {
               window.location.href = "index.php";
             } else {
-              $(".errors").append("<div class='alert alert-danger' role='alert'>" + element + "</div >");
+              $(".errors").html("<div class='error-message alert alert-danger' role='alert'>" + element + "</div>");
             }
           });  
-        //     if (dataArray['connection'] == true) {
-        //       console.log(dataArray['connection']);
-        //       window.location.href = "index.php";
-
-        // }
-          // console.log(dataArray['connection']);
-          // window.location.href = "modals/sign-in_modal.php";
                 },
         error: function(e) {
             alert( "Request failed: " + e );
@@ -103,23 +93,28 @@ function login() {
       });
     });
   }
- login()
+ login();
 
-  $('button[name="add_to_cart"]').click(function (e) { 
+ function categoriesDisplay(parent, child) {
+    $(parent).mouseover(function () {
+      $(this).children().show(100);
+    })
 
-    var quantity = $('input[name="quantity"]').val();
-    var totalquantity = $('.cart-counter').text();
-    $('.cart-counter').html(quantity);
+    $(parent).mouseleave(function () {
+      $(child).hide(100);
+    })
+ }
 
- 
+  categoriesDisplay('.categories', '.categories-list');
+
+  categoriesDisplay('.zoom-img', '.control-panel');
+
+
+//  It turns off login form modal when open register form modal
+  $('.btn-link').click(function () {
+    $('#login_form').modal('toggle');
   })
 
-    $('.categories').mouseover(function() {
-      $('.categories-list').show(100);
-    })
 
-    $('.categories').mouseleave(function () {
-      $('.categories-list').hide(100);
-    })
 });
 

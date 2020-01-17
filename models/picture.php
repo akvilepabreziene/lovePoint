@@ -10,3 +10,14 @@ function getPicture($id) {
     return $picture;
 }
 
+function uploadPicture($product_id, $picture_name) {
+
+    $sql = "INSERT INTO pictures VALUES (NULL, '$picture_name', '$product_id')";
+
+    $uploadPicture = mysqli_query(getConnect(), $sql);
+
+    if (!$uploadPicture && DEBUG_MODE > 0 ) {
+        echo "ERROR: nepavyko sukurti naujo producto!!! <br>";
+    }
+}
+
