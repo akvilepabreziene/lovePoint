@@ -8,22 +8,17 @@ if (isset($_GET['id'])) {
 
     $picture = getPicture($id);
 
-    // $picture_name = $picture['picture_name'];
+    $picture_name = $picture['picture_name'];
 
-    // $path = $_SERVER['DOCUMENT_ROOT'] . 'pictures/' . $picture_name;
-
-    // print_r($path);
-    // unlink($path);
-
-    // deleteProduct($id);
+    deleteProduct($id);
 
         if(isset($_POST['delete_file']))
         {
-        $filename = $_POST['file_name'];
+            $filename = $_POST['file_name'];
 
-        $path = 'pictures/'.$filename;
-        print_r($path);
-        unlink('pictures/'.$filename);
+            $path = 'pictures/'.$filename;
+            print_r($path);
+            unlink('pictures/'.$filename);
         }
 
 
@@ -31,7 +26,7 @@ if (isset($_GET['id'])) {
 
 
 
-    // header("Location: page_all_products.php");
+    header("Location: page_all_products.php");
 
 }
 

@@ -74,6 +74,15 @@ justify-content: space-between;
   display: none;
 }
 
+.user_icon:hover, .user_icon svg:hover {
+  color: rgb(120,183,198)!important;
+}
+
+.user_icon svg{
+  fill: #888;
+
+}
+
 .modal-footer {
   justify-content: flex-start;
 }
@@ -275,3 +284,14 @@ footer a {
 .fa-edit {
   color: rgb(202, 131, 0);
 }
+
+.delete {
+
+  background: rgba(76, 175, 80, 0);
+  border: none;
+}
+
+ .fa-trash:hover, .fa-edit:hover {
+
+    transform: scale(1.2);
+} 

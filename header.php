@@ -69,10 +69,11 @@
                         <?php if (isset($_SESSION['login'])) : ?>
 
                         <li>
-                            <a class="dropdown-user dropdown-toggle" id="myAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               <?php echo $_SESSION['login']['user_name'] ?>
-                            </a>
-                            <div class="dropdown-menu" aria-labelledby="myAccount">
+                            <a class="dropdown-user dropdown-toggle user_icon" id="myAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                               <?php echo $_SESSION['login']['user_name'] ?> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a>
+                            <div class="dropdown-menu mt-2" aria-labelledby="myAccount">
+                                <a class="dropdown-item" href="page_control_panel.php">Valdymo panelė</a>
+                                <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#">Užsakymai</a>
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="logout.php">Logout</a>
