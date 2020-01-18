@@ -1,8 +1,10 @@
 <?php
-
+    require_once('uploads.php');
+    require('functions.php');
     require('config/connection.php');
+    require_once('models/category.php'); 
     require_once('models/product.php'); 
-    require_once('models/picture.php'); 
+    require_once('models/picture.php');
 
     if (isset($_GET['id'])) {
       $id = $_GET['id'];
@@ -18,6 +20,16 @@
           $quantity = htmlspecialchars($_POST['quantity']);
 
           updateProduct($id, $title, $product_code, $price, $material, $description, $category_id, $quantity);
+
+          $product = getProduct($id);
+
+          $product = mysqli_fetch_assoc($product);
+
+          $product_id = $product['id'];
+
+          $picture_name = basename($_FILES["fileToUpload"]["name"]);
+
+          uploadPicture($product_id, $picture_name);
 
           header("Location: page_product.php?id=$_GET[id]");
 

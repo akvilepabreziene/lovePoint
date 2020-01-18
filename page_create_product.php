@@ -44,7 +44,7 @@
                         </div>
                         <div class="form-group">
                             <label for="fileToUpload">Upload product picture</label>
-                                <input type="file" class="form-control-file" value="Upload Image" name="fileToUpload" id="fileToUpload">
+                            <input type="file" class="form-control-file" value="Upload Image" name="fileToUpload" id="fileToUpload">
                         </div>
                          <input type="submit" name="submit" class="btn btn-secondary add-to-cart" value="SAVE" >
                     </form>

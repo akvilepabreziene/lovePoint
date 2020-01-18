@@ -1,6 +1,6 @@
 <?php 
 
-    include('header.php');
+    include('header.php');   
     require_once('models/product.php'); 
     require_once('models/picture.php'); 
 
@@ -10,6 +10,8 @@
         $product = getProduct($id);
         $picture = getPicture($id);
         $categories = getAllCategories();
+        $category_id = $product['category_id'];
+        $old_category = getCategory($category_id);
  }
  
 ?>
@@ -21,7 +23,7 @@
             </aside>
             <main class="col-sm-7 col-xs-6">
                 <div class="my-3">
-                    <form method="POST" action="edit_product.php?id=<?php echo $product['id'] ?>">
+                    <form method="POST" action="edit_product.php?id=<?php echo $product['id'] ?>" enctype= "multipart/form-data">
                         <input type="hidden" name="hidden_image" value="<?php echo $picture['picture_name'] ?>">
                         <div class="form-group">
                             <input type="text" class="form-control" name="title" placeholder="Title" value="<?php echo $product['title'] ?>">
@@ -45,7 +47,8 @@
                         </div>
                         <div class="form-group">
                             <select class="form-control col-5" name="category_id">
-                                <option selected>Choose...</option>
+
+                                <option value="<?php echo $old_category['id'] ?>" selected><?php echo $old_category['category_name'] ?></option>
                                  <?php while ( $category = mysqli_fetch_assoc($categories)) : ?>
 
                                     <option value="<?php echo $category['id'] ?>"><?php echo $category['category_name'] ?></option>
@@ -54,7 +57,11 @@
                                 
                             </select>
                         </div>
-                         <input type="submit" class="btn btn-secondary add-to-cart" value="SAVE" >
+                        <div class="form-group">
+                            <label for="fileToUpload">Upload product picture</label>
+                            <input type="file" class="form-control-file" value="Upload Image" name="fileToUpload" id="fileToUpload">
+                        </div>
+                         <input type="submit" name="submit" class="btn btn-secondary add-to-cart" value="SAVE" >
                     </form>
                 </div>
             </main>

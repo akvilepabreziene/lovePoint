@@ -1,6 +1,15 @@
 <?php
+
+// require('uploads.php');
+
+
+print_r($_FILES["fileToUpload"]["tmp_name"]);
+print_r(getimagesize($_FILES["fileToUpload"]["tmp_name"]));
+
+
 $target_dir = "pictures/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
+print_r(strtolower(pathinfo($target_file, PATHINFO_EXTENSION)));
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
 // Check if image file is a actual image or fake image
@@ -20,7 +29,7 @@ if (file_exists($target_file)) {
     $uploadOk = 0;
 }
 // Check file size
-if ($_FILES["fileToUpload"]["size"] > 500000) {
+if ($_FILES["fileToUpload"]["size"] > 50000000) {
     echo "Sorry, your file is too large.";
     $uploadOk = 0;
 }
