@@ -17,17 +17,24 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
     if (!$emailError && !$passwordError) {
 
         $email = validate($_POST['email']);
-        $password = validate($_POST['password']);
+        $password = $_POST['password'];
    
         $checkEmail = checkUserEmail($email);
 
-        $connectedUser = getUser($email, $password);
+        // $connectedUser = getUser($email);
 
         if (isset($checkEmail)) {
-            if(isset($connectedUser)) {
+
+             $hash_password = $checkEmail['password'];
+
+            if(password_verify($password, $hash_password)) {
                 //  echo "Prisijungete!";
-                $_SESSION['login'] = $connectedUser;
+                $_SESSION['login'] = $checkEmail;
                 array_push($loginErrorsArray, true);
+                if($checkEmail['user_name'] == 'admin') {
+
+                    $_SESSION['admin'] = $checkEmail;
+                }
             } else {
                 array_push($loginErrorsArray, 'Neteisingas slaptažodis');
             }

@@ -26,3 +26,14 @@ function checkUserEmail($email) {
     return $user;
 }
 
+function createUser($user_name, $lastname, $email, $password, $role) {
+    
+    $sql = "INSERT INTO users VALUES (NULL, '$user_name', '$lastname', '$email', '$password', $role)";
+
+    $createUser = mysqli_query(getConnect(), $sql);
+
+     if (!$createUser && DEBUG_MODE > 0 ) {
+        echo "ERROR: nepavyko sukurti naujo vartotojo!!! <br>";
+    }
+}
+

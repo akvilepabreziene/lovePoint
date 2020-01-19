@@ -1,22 +1,27 @@
 <?php
-
-// require('uploads.php');
-
-
-print_r($_FILES["fileToUpload"]["tmp_name"]);
-print_r(getimagesize($_FILES["fileToUpload"]["tmp_name"]));
-
+require('config/connection.php');
+require_once('models/picture.php');
 
 $target_dir = "pictures/";
 $target_file = $target_dir . basename($_FILES["fileToUpload"]["name"]);
-print_r(strtolower(pathinfo($target_file, PATHINFO_EXTENSION)));
+$picture_name = basename($_FILES["fileToUpload"]["name"]);
+$filename = $_POST['file_name'];
 $uploadOk = 1;
 $imageFileType = strtolower(pathinfo($target_file, PATHINFO_EXTENSION));
+
 // Check if image file is a actual image or fake image
 if(isset($_POST["submit"])) {
     $check = getimagesize($_FILES["fileToUpload"]["tmp_name"]);
     if($check !== false) {
         echo "File is an image - " . $check["mime"] . ".";
+        //Check if uploading picture is not the same like old picture and delete old one.
+        if($picture_name !== $filename) {
+                
+            $path = 'pictures/'.$filename;
+            unlink('pictures/'.$filename);
+
+            deletePicture($id);
+        }
         $uploadOk = 1;
     } else {
         echo "File is not an image.";
@@ -46,7 +51,10 @@ if ($uploadOk == 0) {
 } else {
     if (move_uploaded_file($_FILES["fileToUpload"]["tmp_name"], $target_file)) {
         echo "The file ". basename( $_FILES["fileToUpload"]["name"]). " has been uploaded.";
+
+        uploadPicture($id, $picture_name);
     } else {
         echo "Sorry, there was an error uploading your file.";
     }
 }
+

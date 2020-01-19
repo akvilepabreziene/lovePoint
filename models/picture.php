@@ -21,3 +21,8 @@ function uploadPicture($product_id, $picture_name) {
     }
 }
 
+function deletePicture($id) {
+    $sql = "DELETE FROM pictures WHERE product_id = '$id' ";
+    $delete= mysqli_query(getConnect(), $sql);
+}
+

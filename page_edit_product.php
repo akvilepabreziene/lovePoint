@@ -60,6 +60,8 @@
                         <div class="form-group">
                             <label for="fileToUpload">Upload product picture</label>
                             <input type="file" class="form-control-file" value="Upload Image" name="fileToUpload" id="fileToUpload">
+                            <input type='hidden' name='file_name' value="<?php echo $picture['picture_name']?>">
+                            <input type='hidden' name='delete_file' class="delete" value='Delete File'>
                         </div>
                          <input type="submit" name="submit" class="btn btn-secondary add-to-cart" value="SAVE" >
                     </form>
