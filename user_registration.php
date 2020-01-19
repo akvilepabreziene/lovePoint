@@ -9,12 +9,9 @@ $email = $_POST['email'];
 $password = $_POST['password']; 
 $password = password_hash($password, PASSWORD_DEFAULT);
 
-echo $name, $lastname , $email, $password;
-
 // Password Encryption, If you like you can also leave sha1.
 // Check if e-mail address syntax is valid or not
 $email = filter_var($email, FILTER_SANITIZE_EMAIL);
-echo $email;
 //  Sanitizing email(Remove unexpected symbol like <,>,?,#,!, etc.)
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)){
 echo "Invalid Email.......";
@@ -27,7 +24,7 @@ echo "Invalid Email.......";
         print_r($query);
             if($query){
                 echo "You have Successfully Registered.....";
-                
+
             } else {
                 echo "Error....!!";
             }

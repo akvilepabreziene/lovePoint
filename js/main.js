@@ -81,6 +81,9 @@ function login() {
               window.location.href = "index.php";
             } else {
               $(".errors").html("<div class='error-message alert alert-danger' role='alert'>" + element + "</div>");
+               $(".error-message").click(function () {
+                 $(this).hide();
+               })
             }
           });  
                 },
@@ -114,35 +117,81 @@ function login() {
   })
 
 
-  $('#registerSubmit').on('submit', function (e) {
+  function userRegister() {
 
-    var name = $('#user_name').val();
-    var lastname = $('#user_lastname').val();
-    var email = $('#user_email').val();
-    var password = $('#user_password').val();
-    var confirm_password = $('#confirm_password').val();
+    $('#registerSubmit').click(function (e) {
 
-    var emailReg = /^([w-.]+@([w-]+.)+[w-]{2,4})?$/;
+      var name = $('#user_name').val();
+      var lastname = $('#user_lastname').val();
+      var email = $('#user_email').val();
+      var password = $('#user_password').val();
+      var confirm_password = $('#confirm_password').val();
+      var emailRegex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+      var passwordRegex = /^.*(?=.{8,})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/g;
 
-    if ((name != "") && (lastname != "") && (email != "") && (password != "") && (password != "") ) {
-      // if (email.match(emailReg)) {
-      //     if (password === confirm_password) {
+      console.log($('#user_password').val());
+      
 
-      //     } else {
-      //       alert('slaptažodžiai nesutampa');
-      //       e.preventDefault();
-      //     }
-      //     } else {
-      //       alert('netinkamas el.pašto adresas');
-      //      e.preventDefault();
-      //     }
-      } else {
-        alert('uzpildykite laukus');
-      e.preventDefault();
-      }
+      console.log(confirm_password);
+      console.log(password);
+      
+      
 
+      $(".register-errors").html('');
 
-    })
+      if ((name == "") || (lastname == "") || (email == "") || (password == "") || (confirm_password == "") ) {
+
+          $(".register-errors").append("<div class='error-message alert alert-danger' role='alert'>Užpildykite tuščius laukelius</div>");
+          return false;
+        } if (!emailRegex.test(email)) {
+           $(".register-errors").append("<div class='error-message alert alert-danger' role='alert'>Netinkamas el.pašto adresas</div>");
+        }
+          if (!passwordRegex.test(password)) {
+
+         $(".register-errors").append("<div class='error-message alert alert-danger' role='alert'>Slaptažodis neatitinka reikalavimų</div>");
+        
+         }
+          if (password != confirm_password) {
+          $(".register-errors").append("<div class='error-message alert alert-danger' role='alert'>Slaptažodžiai nesutampa</div>");
+          return false;
+        }
+        
+           $.ajax({
+             type: 'post',
+             url: 'user_registration.php',
+             data: {
+               'user_name': name,
+               'lastname': lastname,
+               'email': email,
+               'password': password
+             },
+
+             success: function (data) {
+
+              //  var dataArray = JSON.parse(data);
+              //  $(".errors").html(dataArray);
+
+              //  dataArray.forEach(element => {
+              //    if (element == true) {
+              //      window.location.href = "index.php";
+              //    } else {
+              //      $(".errors").html("<div class='error-message alert alert-danger' role='alert'>" + element + "</div>");
+              //      $(".error-message").click(function () {
+              //        $(this).hide();
+              //      })
+              //    }
+              //  });
+             },
+             error: function (e) {
+               alert("Request failed: " + e);
+               console.log("NESUVEIKE!");
+             }
+           });
+
+      })
+  }
+
+userRegister();
 
 });
 

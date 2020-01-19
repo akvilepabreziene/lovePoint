@@ -9,8 +9,9 @@
                 </button>
             </div>
             <div class="modal-body">
-                    <div class="errors"></div>
-                <form  class="login-form" action="user_registration.php" method="POST" id="register_form">
+                <div class="register-errors">
+                </div>
+                <form  class="login-form" method="POST" id="register_form">
                     <div class="form-group">
                         <input type="text" class="form-control" aria-describedby="emailHelp" name="user_name" id="user_name" value="" placeholder="Name">
                     </div>
@@ -22,7 +23,7 @@
                     </div>
                     <div class="form-group">
                         <div class="input-group">
-                            <input type="password" class="form-control" id="registerpPassword" name="password" id="user_password" value="" placeholder="Password">
+                            <input type="password" class="form-control" name="password" id="user_password" value="" placeholder="Password">
                             <div class="input-group-prepend show-password">
                                 <span class="input-group-text" id="inputGroup-sizing-default">
                                     <div class="eye-show">
@@ -55,7 +56,7 @@
                         </div>
                     </div>
                     <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Close</button>
-                    <button type="submit" id="registerSubmit" class="btn btn-info">Sign Up</button>
+                    <button type="button" id="registerSubmit" class="btn btn-info">Sign Up</button>
                 </form>
             </div>
         </div>
