@@ -295,3 +295,7 @@ footer a {
 
     transform: scale(1.2);
 } 
+
+span.input-group-text {
+  height: 35px;
+}

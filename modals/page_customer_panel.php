@@ -1,8 +1,8 @@
-<div class="modal fade" id="login_form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="customer_panel" tabindex="-1" role="dialog" aria-labelledby="customer_panelLabel" aria-hidden="true">
     <div class="modal-dialog" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">Sign In</h5>
+                <h6 class="modal-title" id="exampleModalLabel">Prisijungimas</h6>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>
@@ -11,7 +11,7 @@
                 <div class="errors"></div>
                 <form class="login-form" method="POST">
                     <div class="form-group">
-                        <input type="text" class="form-control" id="signInEmail" aria-describedby="emailHelp" name="email" value="" placeholder="Email">
+                        <input type="text" class="form-control" aria-describedby="emailHelp" name="email" value="" placeholder="Email">
                     </div>
                     <div class="form-group">
                         <div class="input-group">
@@ -32,10 +32,13 @@
                             </div>
                         </div>
                     </div>
-                    <button type="button" class="btn btn-secondary mr-2" data-dismiss="modal">Close</button>
-                    <button type="button" id="loginsubmit" class="btn btn-info loginsubmit">Sign In</button>
-                    <button type="button" class="btn btn btn-link" data-toggle="modal" data-target="#register_form">Sign Up?</button>
+                    <div class="row px-3">
+                        <button type="button" class="btn btn-info col mr-2 loginsubmit">Prisijungti</button>
+                        <button type="button" class="btn btn-outline-info col" data-toggle="modal" data-dismiss="modal" data-target="#register_form">Norite registruotis?</button>
+                    </div>
                 </form>
+                <div class="text-center my-3">arba</div>
+                <a href="page_order_form.php" type="button" class="btn btn-outline-secondary w-100">PIRKIMAS BE REGISTRACIJOS</a>
             </div>
         </div>
     </div>

@@ -44,7 +44,6 @@ function changeShoppingCartInputValue() {
           var dataArray = JSON.parse(data);
           $('.cart-counter').html(dataArray[0]);
           $('.total_sum').html(dataArray[1] + " &euro;");
-console.log(dataArray);
 
                 },
         error: function(e) {
@@ -52,8 +51,6 @@ console.log(dataArray);
              console.log("NESUVEIKE!");
        }
       });
-  
-  
     });
 }
 
@@ -62,9 +59,10 @@ changeShoppingCartInputValue();
 function login() {
   // Onclick function for counting multiple product prices
 
-    $('#loginsubmit').click(function (e) {
+    $('.loginsubmit').click(function (e) {
       var email = $('input[name="email"]').val();
       var password = $('input[name="password"]').val();
+      $(".errors").html('');
 
       $.ajax({
         type : 'post',
@@ -74,16 +72,12 @@ function login() {
         success : function(data){
 
           var dataArray = JSON.parse(data);
-          $(".errors").html(dataArray);
 
           dataArray.forEach(element => {
-            if (element== true) {
+            if (element == true) {
               window.location.href = "index.php";
             } else {
-              $(".errors").html("<div class='error-message alert alert-danger' role='alert'>" + element + "</div>");
-               $(".error-message").click(function () {
-                 $(this).hide();
-               })
+              $(".errors").append("<div class='error-message alert alert-danger' role='alert'>" + element + "</div>");
             }
           });  
                 },
@@ -110,7 +104,6 @@ function login() {
 
   categoriesDisplay('.zoom-img', '.control-panel');
 
-
 //  It turns off login form modal when open register form modal
   $('.btn-link').click(function () {
     $('#login_form').modal('toggle');
@@ -128,15 +121,7 @@ function login() {
       var confirm_password = $('#confirm_password').val();
       var emailRegex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
       var passwordRegex = /^.*(?=.{8,})(?=.*\d)((?=.*[a-z]){1})((?=.*[A-Z]){1}).*$/g;
-
-      console.log($('#user_password').val());
       
-
-      console.log(confirm_password);
-      console.log(password);
-      
-      
-
       $(".register-errors").html('');
 
       if ((name == "") || (lastname == "") || (email == "") || (password == "") || (confirm_password == "") ) {
@@ -168,19 +153,6 @@ function login() {
 
              success: function (data) {
 
-              //  var dataArray = JSON.parse(data);
-              //  $(".errors").html(dataArray);
-
-              //  dataArray.forEach(element => {
-              //    if (element == true) {
-              //      window.location.href = "index.php";
-              //    } else {
-              //      $(".errors").html("<div class='error-message alert alert-danger' role='alert'>" + element + "</div>");
-              //      $(".error-message").click(function () {
-              //        $(this).hide();
-              //      })
-              //    }
-              //  });
              },
              error: function (e) {
                alert("Request failed: " + e);
@@ -192,6 +164,71 @@ function login() {
   }
 
 userRegister();
+
+  function orderSumbit() {
+
+    $('#order_form_submit').click(function (e) {
+
+      var name = $('#customer_name').val();
+      var lastname = $('#customer_lastname').val();
+      var email = $('#customer_email').val();
+      var street = $('#street').val();
+      var house_number = $('#house_number').val();
+      var post_code = $('#post_code').val();
+      var city = $('#city').val();
+      var phone = $('#customer_phone').val();
+      var adress = $('#street').val() + ' ' + $('#house_number').val() + ' ' + $('#post_code').val() + ' ' + $('#city').val();
+      var emailRegex = /^\b[A-Z0-9._%-]+@[A-Z0-9.-]+\.[A-Z]{2,4}\b$/i;
+      var phoneRegex = /^((?!(-1))[0-9]{11})$/g;
+      var postCodeRegex = /^((?!(-1))[0-9]{5})$/g;
+
+      $(".order_form_error").html('');
+
+      if ((name == "") || (lastname == "") || (email == "") || (street == "") || (house_number == "") || (post_code == "") || (city == "") || (phone == "")) {
+
+        $(".order_form_error").append("<div class='error-message alert alert-danger' role='alert'>Užpildykite tuščius laukelius</div>");
+        return false;
+      }
+      if (!emailRegex.test(email)) {
+        $(".order_form_error").append("<div class='error-message alert alert-danger' role='alert'>Netinkamas el.pašto adresas</div>");
+      }
+      if (!phoneRegex.test(phone)) {
+
+        $(".order_form_error").append("<div class='error-message alert alert-danger' role='alert'>Neteisingas telefono numeris</div>");
+      }
+      if (!postCodeRegex.test(post_code)) {
+
+        $(".order_form_error").append("<div class='error-message alert alert-danger' role='alert'>Pašto kodas turi būti iš 5 skaičių.</div>");
+         return false;
+      }
+
+
+      $.ajax({
+        type: 'post',
+        url: 'create_order.php',
+        data: {
+          'name': name,
+          'lastname': lastname,
+          'email': email,
+          'adress': adress,
+          'phone': phone
+          
+        },
+
+        success: function (data) {
+          window.location.href = "create_order.php";
+          
+        },
+        error: function (e) {
+          alert("Request failed: " + e);
+          console.log("NESUVEIKE!");
+        }
+      });
+
+    })
+  }
+
+// orderSumbit();
 
 });
 
