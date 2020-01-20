@@ -1,16 +1,17 @@
-<?php 
+<?php
 
-    include 'modals/page_login_form.php'; 
-    include 'modals/page_register_form.php';
-    require('config/connection.php');
-    require_once('models/category.php'); 
-    session_start(); 
+include 'modals/page_login_form.php';
+include 'modals/page_register_form.php';
+require('config/connection.php');
+require_once('models/category.php');
+session_start();
 
-    $categories = getAllCategories();
+$categories = getAllCategories();
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -24,30 +25,30 @@
 </head>
 
 <body>
-  <!-- Header start -->
+    <!-- Header start -->
     <header class="">
-      <!-- Top link start -->
+        <!-- Top link start -->
         <div class="container">
             <div class="row">
                 <div class="col-md-6 align-self-center">
                     <div class="dropdown show mr-1">
                         <a class="dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          EN
+                            EN
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="">EN</a>
-                          <a class="dropdown-item" href="">LT</a>
+                            <a class="dropdown-item" href="">EN</a>
+                            <a class="dropdown-item" href="">LT</a>
                         </div>
-                      </div>
-                      <div class="dropdown show">
+                    </div>
+                    <div class="dropdown show">
                         <a class="dropdown-toggle" href="" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                          EUR
+                            EUR
                         </a>
                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                          <a class="dropdown-item" href="">EUR</a>
-                          <a class="dropdown-item" href="">USD</a>
+                            <a class="dropdown-item" href="">EUR</a>
+                            <a class="dropdown-item" href="">USD</a>
                         </div>
-                      </div>
+                    </div>
                 </div>
                 <div class="col-md-6">
                     <ul class="top-link my-2">
@@ -61,24 +62,28 @@
                             <a href="">CHECKOUT</a>
                         </li>
                         <?php if (!isset($_SESSION['login'])) : ?>
-                        <li>
-                            <a href="" data-toggle="modal" data-target="#login_form">Login</a>
-                        </li>
+                            <li>
+                                <a href="" data-toggle="modal" data-target="#login_form">Login</a>
+                            </li>
                         <?php endif ?>
 
                         <?php if (isset($_SESSION['login'])) : ?>
 
-                        <li>
-                            <a class="dropdown-user dropdown-toggle user_icon" id="myAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                               <?php echo $_SESSION['login']['user_name'] ?> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/><path d="M0 0h24v24H0z" fill="none"/></svg></a>
-                            <div class="dropdown-menu mt-2" aria-labelledby="myAccount">
-                                <a class="dropdown-item" href="page_control_panel.php">Valdymo panelė</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Užsakymai</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="logout.php">Logout</a>
-                            </div>
-                        </li>
+                            <li>
+                                <a class="dropdown-user dropdown-toggle user_icon" id="myAccount" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <?php echo $_SESSION['login']['user_name'] ?> <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24">
+                                        <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z" />
+                                        <path d="M0 0h24v24H0z" fill="none" /></svg></a>
+                                <div class="dropdown-menu mt-2" aria-labelledby="myAccount">
+                                    <?php if (isset($_SESSION['admin'])) : ?>
+                                        <a class="dropdown-item" href="page_control_panel.php">Valdymo panelė</a>
+                                        <div class="dropdown-divider"></div>
+                                    <?php endif ?>
+                                    <a class="dropdown-item" href="#">Užsakymai</a>
+                                    <div class="dropdown-divider"></div>
+                                    <a class="dropdown-item" href="logout.php">Logout</a>
+                                </div>
+                            </li>
 
                         <?php endif ?>
 
@@ -114,12 +119,12 @@
                                                 <a href="page_all_products.php" class="list-group-item">VISI</a>
                                             </li>
 
-                                         <?php while ( $category = mysqli_fetch_assoc($categories)) : ?>
+                                            <?php while ($category = mysqli_fetch_assoc($categories)) : ?>
 
-                                            <li>
-                                                <a href="page_all_products.php?category_id=<?php  echo $category['id'] ?>" class="list-group-item"><?php  echo $category['category_name'] ?></a>
-                                            </li>
-                                        <?php endwhile; ?>   
+                                                <li>
+                                                    <a href="page_all_products.php?category_id=<?php echo $category['id'] ?>" class="list-group-item"><?php echo $category['category_name'] ?></a>
+                                                </li>
+                                            <?php endwhile; ?>
                                         </ul>
                                     </div>
                                 </li>
@@ -128,8 +133,10 @@
                                 </li>
                                 <li class="nav-item">
                                     <div class="cart">
-                                        <a class="" href="page_shoping_cart.php"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24"><path d="M0 0h24v24H0z" fill="none"/><path d="M17.21 9l-4.38-6.56c-.19-.28-.51-.42-.83-.42-.32 0-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1h-4.79zM9 9l3-4.4L15 9H9zm3 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/></svg></a>
-                                        <?php if(isset($_SESSION["total_quantity"]) && $_SESSION['total_quantity'] > 0) : ?>
+                                        <a class="" href="page_shoping_cart.php"><svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24">
+                                                <path d="M0 0h24v24H0z" fill="none" />
+                                                <path d="M17.21 9l-4.38-6.56c-.19-.28-.51-.42-.83-.42-.32 0-.64.14-.83.43L6.79 9H2c-.55 0-1 .45-1 1 0 .09.01.18.04.27l2.54 9.27c.23.84 1 1.46 1.92 1.46h13c.92 0 1.69-.62 1.93-1.46l2.54-9.27L23 10c0-.55-.45-1-1-1h-4.79zM9 9l3-4.4L15 9H9zm3 8c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z" /></svg></a>
+                                        <?php if (isset($_SESSION["total_quantity"]) && $_SESSION['total_quantity'] > 0) : ?>
 
                                             <div class="cart-counter"><?php echo $_SESSION['total_quantity'] ?></div>
 
@@ -139,7 +146,7 @@
                                 </li>
                             </ul>
                         </div>
-                      </nav>
+                    </nav>
                 </div>
             </div>
         </div>

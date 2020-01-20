@@ -11,19 +11,12 @@ date_default_timezone_set("Europe/Helsinki");
 
 if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
-    // $name = $_POST['name'];
-    // $lastname = $_POST['lastname'];
-    // $email = $_POST['email'];
-    // $adress = $_POST['adress'];
-    // $phone = $_POST['phone'];
-
-    $name = $_POST['customer_name'];
-    $lastname = $_POST['customer_lastname'];
-    $email = $_POST['customer_email'];
-    $adress = $_POST['street'] . $_POST['house_number'];
-    $phone = $_POST['customer_phone'];
+    $name = $_POST['name'];
+    $lastname = $_POST['lastname'];
+    $email = $_POST['email'];
+    $adress = $_POST['adress'];
+    $phone = $_POST['phone'];
     
-
     $order_time = date("Y-m-d h:i:s", time());
 
     $customer = getCustomerByEmail($email);
@@ -35,7 +28,6 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
         $customer = getLastCustomer(1);
         $customer = mysqli_fetch_assoc($customer);
         $customer_id = $customer['id'];
-        print_r($customer);
 
         createOrder($customer_id, $order_time);
 
@@ -44,11 +36,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $order_id = $lastOrder['id'];
 
-        foreach ($_SESSION["shopping_cart"] as $cart_item) {
+        foreach ($_SESSION["shopping_cart"] as $key => $cart_item) {
 
             createOrderProduct($order_id, $cart_item['product_id'], $cart_item['product_quantity']);
+            unset($_SESSION["shopping_cart"][$key]);
         }
 
+        echo "Užsakymas gautas! Daugiau informacijos gausite el.paštu";
 
     } else {
         
@@ -62,15 +56,13 @@ if($_SERVER['REQUEST_METHOD'] == 'POST') {
 
         $order_id = $lastOrder['id'];
 
-        foreach ($_SESSION["shopping_cart"] as $cart_item) {
+        foreach ($_SESSION["shopping_cart"] as $key => $cart_item) {
 
-            echo $order_id . "order id<br>";
-            echo $cart_item['product_id']. " product<br>";
-            echo $cart_item['product_quantity'] . " quantity<br>";
+            createOrderProduct($order_id, $cart_item['product_id'], $cart_item['product_quantity']);
+            unset($_SESSION["shopping_cart"][$key]);
 
-        createOrderProduct($order_id, $cart_item['product_id'], $cart_item['product_quantity']);
         }
-
+        echo "Užsakymas gautas! Daugiau informacijos gausite el.paštu";
 
  }
 

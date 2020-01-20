@@ -13,11 +13,10 @@ if (isset($_SESSION["login"])) {
 }
 ?>
 
-
 <div class="container mt-3">
     <h3 class="mb-3">UŽSAKYMO INFORMACIJA</h3>
     <div class="order_form_error"></div>
-    <form method="POST" action="create_order.php">
+    <form method="POST" >
         <div class="row">
             <div class="col-xs-12 col-sm-7">
                 <div class="form-row">
@@ -76,7 +75,7 @@ if (isset($_SESSION["login"])) {
                 <a href="page_shoping_cart.php" type="button" class="btn btn-outline-info">GRĮŽTI</a>
             </div>
             <div class="col text-right">
-                <button type="submit" id="order_form_submit" class="btn btn-info">PIRKTI</button>
+                <button type="button" id="order_form_submit" class="btn btn-info">PIRKTI</button>
             </div>
         </div>
     </form>

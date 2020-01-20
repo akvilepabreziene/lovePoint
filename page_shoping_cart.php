@@ -74,7 +74,7 @@ include('modals/page_customer_panel.php');
         <div class="row">
             <div class="card mx-3 my-5 card-bg text-center w-100">
                 <div class="card-body">
-                    <h5 class="card-title my-3">Jūsų krepšelis tuščias :(</h5>
+                    <h5 class="card-title my-3 cart-message">Jūsų krepšelis tuščias :(</h5>
                 </div>
             </div>
         </div>

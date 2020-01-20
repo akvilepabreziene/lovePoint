@@ -75,11 +75,12 @@ function login() {
 
           dataArray.forEach(element => {
             if (element == true) {
-              window.location.href = "index.php";
+              window.location.href = "page_shoping_cart.php";
             } else {
               $(".errors").append("<div class='error-message alert alert-danger' role='alert'>" + element + "</div>");
             }
           });  
+
                 },
         error: function(e) {
             alert( "Request failed: " + e );
@@ -152,7 +153,7 @@ function login() {
              },
 
              success: function (data) {
-
+                window.location.href = "page_shoping_cart.php";
              },
              error: function (e) {
                alert("Request failed: " + e);
@@ -216,8 +217,8 @@ userRegister();
         },
 
         success: function (data) {
-          window.location.href = "create_order.php";
-          
+          $(".cart-message").html(data);
+          window.location.href = "page_shoping_cart.php";
         },
         error: function (e) {
           alert("Request failed: " + e);
@@ -228,7 +229,7 @@ userRegister();
     })
   }
 
-// orderSumbit();
+orderSumbit();
 
 });
 

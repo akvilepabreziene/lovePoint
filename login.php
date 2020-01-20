@@ -21,17 +21,17 @@ if ($_SERVER["REQUEST_METHOD"] == "POST")  {
    
         $checkEmail = checkUserEmail($email);
 
-        // $connectedUser = getUser($email);
-
         if (isset($checkEmail)) {
 
              $hash_password = $checkEmail['password'];
 
             if(password_verify($password, $hash_password)) {
-                //  echo "Prisijungete!";
+
                 $_SESSION['login'] = $checkEmail;
+
                 array_push($loginErrorsArray, true);
-                if($checkEmail['user_name'] == 'admin') {
+
+                if($checkEmail['role'] == 2) {
 
                     $_SESSION['admin'] = $checkEmail;
                 }

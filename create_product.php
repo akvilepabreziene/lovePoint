@@ -2,7 +2,6 @@
 
 require_once('uploads.php');
 require('functions.php');
-require('config/connection.php');
 require_once('models/category.php'); 
 require_once('models/product.php'); 
 require_once('models/picture.php');
@@ -29,7 +28,7 @@ if((isset($_POST['title']) && $_POST['title'] !='') && (isset($_POST['product_co
 
     uploadPicture($product_id, $picture_name);
 
-    // header("Location: page_product.php?id=$product_id");
+    header("Location: page_product.php?id=$product_id");
 
 
 }
