@@ -57,15 +57,15 @@ include('modals/page_customer_panel.php');
         <?php endforeach;
         ?><div class="w-100 text-right">
             <h5 class="total_sum"><?php if (isset($_SESSION["total_sum"])) {
-                echo $_SESSION['total_sum'] . " &euro;";
-            } ?></h5>
+                                        echo $_SESSION['total_sum'] . " &euro;";
+                                    } ?></h5>
         </div>
         <div class="w-100 text-right line">
-        <?php if (!isset($_SESSION['login'])) { ?>
-            <button type="button" id="" class="btn btn-info mt-2" data-toggle="modal" data-target="#customer_panel">Pirkti</button>
-        <?php } else { ?>
-            <a href="page_order_form.php" type="button" id="" class="btn btn-info mt-2">Pirkti</a>
-        <?php } ?>
+            <?php if (!isset($_SESSION['login'])) { ?>
+                <button type="button" id="" class="btn btn-info mt-2" data-toggle="modal" data-target="#customer_panel">Pirkti</button>
+            <?php } else { ?>
+                <a href="page_order_form.php" type="button" id="" class="btn btn-info mt-2">Pirkti</a>
+            <?php } ?>
 
         </div>
     <?php } else {
