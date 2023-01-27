@@ -57,20 +57,20 @@ include('modals/page_customer_panel.php');
         <?php endforeach;
         ?><div class="w-100 text-right">
             <h5 class="total_sum"><?php if (isset($_SESSION["total_sum"])) {
-                                        echo $_SESSION['total_sum'] . " &euro;";
-                                    } ?></h5>
+                echo $_SESSION['total_sum'] . " &euro;";
+            } ?></h5>
         </div>
         <div class="w-100 text-right line">
-            <?php if (!isset($_SESSION['login'])) { ?>
-                <button type="button" id="" class="btn btn-info mt-2" data-toggle="modal" data-target="#customer_panel">Pirkti</button>
-            <?php } else { ?>
-                <a href="page_order_form.php" type="button" id="" class="btn btn-info mt-2">Pirkti</a>
-            <?php } ?>
+        <?php if (!isset($_SESSION['login'])) { ?>
+            <button type="button" id="" class="btn btn-info mt-2" data-toggle="modal" data-target="#customer_panel">Pirkti</button>
+        <?php } else { ?>
+            <a href="page_order_form.php" type="button" id="" class="btn btn-info mt-2">Pirkti</a>
+        <?php } ?>
 
         </div>
-    <?php } else { ?>
-        <?php $_SESSION["total_quantity"] = 0; ?>
-
+    <?php } else {
+        $_SESSION["total_quantity"] = 0;
+    ?>
         <div class="row">
             <div class="card mx-3 my-5 card-bg text-center w-100">
                 <div class="card-body">
@@ -78,7 +78,9 @@ include('modals/page_customer_panel.php');
                 </div>
             </div>
         </div>
-    <?php } ?>
+    <? } ?>
 </div>
+
+<?php include('footer.php'); ?>
 
 // aaaa masterio pakeitimas

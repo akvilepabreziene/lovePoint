@@ -3,9 +3,9 @@
  define('DB_NAME', 'lovepoint');
  define('DB_TYPE', 'localhost');
  define('MYSQL_USER_NAME', 'root');
- define('MYSQL_USER_PASS', 'root');
+ define('MYSQL_USER_PASS', '');
 
- define('DEBUG_MODE', '0'); //0 - isjungta, 1 - rodo pagrindinius, 2 - rodo visus pranesimus
+ define('DEBUG_MODE', '2'); //0 - isjungta, 1 - rodo pagrindinius, 2 - rodo visus pranesimus
 
 $connect = mysqli_connect(DB_TYPE, MYSQL_USER_NAME, MYSQL_USER_PASS, DB_NAME);
 

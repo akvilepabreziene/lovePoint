@@ -4,7 +4,7 @@ include 'modals/page_login_form.php';
 include 'modals/page_register_form.php';
 require('config/connection.php');
 require_once('models/category.php');
-session_start();
+// session_start();
 
 $categories = getAllCategories();
 ?>
