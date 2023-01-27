@@ -82,3 +82,5 @@ include('modals/page_customer_panel.php');
 </div>
 
 <?php include('footer.php'); ?>
+
+// aaaa masterio pakeitimas
