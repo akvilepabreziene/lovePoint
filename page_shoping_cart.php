@@ -80,3 +80,5 @@ include('modals/page_customer_panel.php');
         </div>
     <?php } ?>
 </div>
+
+// aaaa masterio pakeitimas
